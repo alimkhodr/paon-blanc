@@ -58,7 +58,7 @@ const Slide = () => {
     <SwiperContainer
       sx={{
         width: '100%',
-        height: 'calc(100dvh - 80px)',
+        height: 'calc(100dvh)',
         position: 'relative',
       }}
     >
@@ -85,7 +85,7 @@ const Slide = () => {
                 position: 'absolute',
                 top: '50%',
                 left: '50%',
-                transform: 'translate(-50%, -20%)',
+                transform: { xs: 'translate(-50%, -20%)', md: 'translate(-50%, 50%)' },
                 alignItems: 'flex-start',
                 textAlign: 'left',
                 padding: 2,
