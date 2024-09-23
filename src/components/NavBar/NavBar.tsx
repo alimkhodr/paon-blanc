@@ -27,7 +27,7 @@ const NavBar = () => {
     const StyledToolbar = styled(Toolbar)(() => ({
         display: "flex",
         justifyContent: "center",
-        backgroundColor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.primary.main,
         height: '70px',
         boxShadow: '0px 0px 10px 5px rgba(0,0,0,0.2)'
     }));
