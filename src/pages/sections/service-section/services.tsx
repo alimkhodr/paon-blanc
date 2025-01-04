@@ -25,9 +25,12 @@ const SwiperContainer = styled(Box)(() => ({
 
 const Service = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState<{ category: string; items: string[] } | null>(null);
+  const [selectedService, setSelectedService] = useState<{
+    category: string;
+    items: { text: string }[];
+  } | null>(null);
 
-  const handleOpenModal = (service: { category: string; items: string[] }) => {
+  const handleOpenModal = (service: { category: string; items: { text: string }[] }) => {
     setSelectedService(service);
     setModalOpen(true);
   };
