@@ -1,6 +1,6 @@
 import NavBar from "../../components/NavBar/NavBar"
-import Slide from "../sections/Slide/Slide"
-import Services from "../sections/Services/Services"
+import Slide from "../sections/slide-section/slide"
+import Services from "../sections/service-section/services"
 
 const Home = () => {
     return (

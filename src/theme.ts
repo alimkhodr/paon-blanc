@@ -12,9 +12,14 @@ let theme = createTheme({
             A400: '#1A4848',
         },
         background: {
-            default: '#ffffff',
-            paper: '#E2D8BC',
-        }
+            default: '#E2D8BC',
+            paper: '#FFFFFF',
+        },
+        text: {
+            primary: '#253127',
+            secondary: '#383838',
+            disabled: '#A6A6A6',
+        },
     },
     typography: {
         fontFamily: "Merriweather"

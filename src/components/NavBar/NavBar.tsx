@@ -28,7 +28,7 @@ const NavBar = () => {
         display: "flex",
         justifyContent: "center",
         backgroundColor: theme.palette.primary.main,
-        height: '70px',
+        height: '90px',
         boxShadow: '0px 0px 10px 5px rgba(0,0,0,0.2)'
     }));
 
@@ -36,7 +36,6 @@ const NavBar = () => {
         setOpen(!open);
     };
 
-    // Function to check the section currently in view
     const handleScroll = () => {
         let foundSection = false;
         sections.forEach((section) => {
@@ -76,26 +75,27 @@ const NavBar = () => {
                     backgroundColor: 'transparent',
                     display: "flex",
                     alignItems: { xs: 'stretch', md: 'center' },
-                    padding: { xs: '0px', md: '10px' },
+                    padding: { xs: '0px', md: '15px' },
                     animation: `${slideDown} 0.5s ease-out`,
                 }}
             >
                 <StyledToolbar sx={{ borderRadius: { xs: 0, md: 50 } }}>
-                    <img src={Logo} alt="Logo" style={{ height: "40px", margin: '5px 40px 5px 40px' }} />
+                    <img src={Logo} alt="Logo" style={{ height: "50px", margin: '5px 40px 5px 40px' }} />
                     <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', alignItems: 'center' }}>
                         {sections.map((section, index) => (
                             <>
                                 <MenuItem
                                     key={section.id}
                                     sx={{
+                                        fontSize: '1.2rem',
                                         padding: '1px 15px',
                                         borderRadius: '15px',
                                         margin: '0 10px',
-                                        backgroundColor: activeSection === section.id ? theme.palette.background.paper : 'transparent',
+                                        backgroundColor: activeSection === section.id ? theme.palette.background.default : 'transparent',
                                         color: activeSection === section.id ? theme.palette.secondary.main : 'inherit',
                                         transition: 'background-color 0.3s ease, color 0.3s ease',
                                         '&:hover': {
-                                            backgroundColor: theme.palette.background.paper,
+                                            backgroundColor: theme.palette.background.default,
                                             color: theme.palette.secondary.main,
                                         },
                                         display: { xs: 'none', md: 'block' }
@@ -107,7 +107,7 @@ const NavBar = () => {
                                 </MenuItem>
 
                                 {index < sections.length - 1 && (
-                                    <Typography sx={{ display: { xs: 'none', md: 'block', color: theme.palette.background.paper } }}>
+                                    <Typography sx={{ display: { xs: 'none', md: 'block', color: theme.palette.background.default } }}>
                                         \\
                                     </Typography>
                                 )}
@@ -129,7 +129,7 @@ const NavBar = () => {
                 anchor="right"
                 open={open}
                 onClose={handleDrawerToggle}
-                sx={{ display: { xs: 'block', md: 'none' }, '& .MuiDrawer-paper': { backgroundColor: theme.palette.background.paper, color: theme.palette.primary.main } }}
+                sx={{ display: { xs: 'block', md: 'none' }, '& .MuiDrawer-default': { backgroundColor: theme.palette.background.default, color: theme.palette.primary.main } }}
             >
                 <List>
                     {sections.map((section) => (
@@ -140,7 +140,7 @@ const NavBar = () => {
                             href={`#${section.id}`}
                             onClick={handleDrawerToggle}
                             sx={{
-                                backgroundColor: activeSection === section.id ? theme.palette.background.paper : 'transparent',
+                                backgroundColor: activeSection === section.id ? theme.palette.background.default : 'transparent',
                                 color: activeSection === section.id ? theme.palette.primary.main : 'inherit'
                             }}
                         >
