@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Typography, Modal } from '@mui/material';
-
+import { Box, Typography, Modal, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 interface Props {
   open: boolean;
   handleClose: () => void;
@@ -23,12 +23,23 @@ const ServiceModal: React.FC<Props> = ({ open, handleClose, category, text }) =>
           left: '50%',
           transform: 'translate(-50%, -50%)',
           bgcolor: 'background.paper',
+          minWidth: '80%',
           border: 'none',
           boxShadow: 24,
           p: 4,
           borderRadius: 2,
         }}
       >
+        <IconButton
+          onClick={handleClose}
+          sx={{
+            position: 'absolute',
+            top: 8,
+            right: 8,
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
         <Typography id="modal-title" variant="h4" component="h2">
           {category}
         </Typography>
