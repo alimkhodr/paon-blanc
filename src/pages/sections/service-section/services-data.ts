@@ -57,7 +57,7 @@ const services = [
         text: 'Nutrição Facial - R$79,00',
       },
       {
-        text: 'Hidra Lips Gloss (Seção) - R$249,00',
+        text: 'Hidra Lips Gloss (Sessão) - R$249,00',
       },
       {
         text: 'Drenagem Linfática Facial - R$69,00',
