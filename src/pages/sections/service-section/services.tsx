@@ -19,7 +19,7 @@ const SwiperContainer = styled(Box)(() => ({
     display: 'none',
   },
   '.swiper-pagination-bullet': {
-    display: 'none',
+    background: theme.palette.primary.main,
   },
 }));
 
@@ -46,6 +46,7 @@ const Service = () => {
   }));
 
   const StyledCard = styled('div')(() => ({
+    marginBottom: '40px',
     borderRadius: 5,
     border: 'none',
     padding: 25,
