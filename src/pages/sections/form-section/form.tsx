@@ -25,6 +25,10 @@ const Form = () => {
         service.items.map(item => `${service.category} - ${item.text}`)
     );
 
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
+    };
+
     return (
         <StyledForm>
             <Container
@@ -45,13 +49,13 @@ const Form = () => {
                 </Typography>
                 <StyledCard>
                     <form
-                        name="contact"
+                        name="contact-form"
                         method="POST"
-                        data-netlify="true" 
+                        data-netlify="true"
+                        onSubmit={handleSubmit}
                         style={{ display: "flex", gap: 15, flexDirection: "column" }}
                     >
-                        <input type="hidden" name="form-name" value="contact" />
-
+                        <input type="hidden" name="form-name" value="contact-form" />
                         <TextField
                             label="Nome"
                             variant="outlined"
@@ -75,7 +79,6 @@ const Form = () => {
                                 labelId="procedimento-label"
                                 label="Procedimento de Interesse"
                                 name="procedimento"
-                                required
                             >
                                 {procedimentos.map((procedimento, index) => (
                                     <MenuItem key={index} value={procedimento}>
