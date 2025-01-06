@@ -1,7 +1,7 @@
 import { Container, TextField, MenuItem, Select, InputLabel, FormControl, styled, Typography } from '@mui/material';
 import StyledButtonGreen from '../../../components/StyledButton/StyledButtonGreen';
 import theme from '../../../theme';
-import services from '../../sections/service-section/services-data'; // Importando os dados de serviços
+import services from '../../sections/service-section/services-data';
 
 const Form = () => {
     const StyledForm = styled('div')(({ theme }) => ({
@@ -21,7 +21,9 @@ const Form = () => {
         width: '80%',
     }));
 
-    const procedimentos = services.flatMap(service => service.items.map(item => item.text));
+    const procedimentos = services.flatMap(service =>
+        service.items.map(item => `${service.category} - ${item.text}`)
+    );
 
     return (
         <StyledForm>
@@ -42,7 +44,14 @@ const Form = () => {
                     Preencha o Formulário
                 </Typography>
                 <StyledCard>
-                    <form style={{ display: "flex", gap: 15, flexDirection: "column" }}>
+                    <form
+                        name="contact"
+                        method="POST"
+                        data-netlify="true" 
+                        style={{ display: "flex", gap: 15, flexDirection: "column" }}
+                    >
+                        <input type="hidden" name="form-name" value="contact" />
+
                         <TextField
                             label="Nome"
                             variant="outlined"
@@ -66,6 +75,7 @@ const Form = () => {
                                 labelId="procedimento-label"
                                 label="Procedimento de Interesse"
                                 name="procedimento"
+                                required
                             >
                                 {procedimentos.map((procedimento, index) => (
                                     <MenuItem key={index} value={procedimento}>
