@@ -14,7 +14,6 @@
     "@mui/icons-material": "^5.16.4",
     "@mui/material": "^5.16.4",
     "axios": "^1.7.2",
-    "dotenv": "^16.4.7",
     "nodemailer": "^6.9.16",
     "paon-blanc": "file:",
     "react": "^18.3.1",
