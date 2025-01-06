@@ -44,7 +44,7 @@ const Form = () => {
         };
 
         try {
-            const response = await fetch("/.netlify/functions/send-contact", {
+            const response = await fetch("/netlify/functions/send-contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
