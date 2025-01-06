@@ -1,7 +1,6 @@
-import { Box, Button, Container, IconButton, styled, Typography } from '@mui/material';
+import { Box, Button, Container, styled, Typography } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
 
 const Contact = () => {
     const StyledContact = styled('div')(({ theme }) => ({
@@ -21,11 +20,16 @@ const Contact = () => {
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                     />
-                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', gap: {xs: 3, md: 6} }}>
+                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', gap: { xs: 3, md: 6 } }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                             <Typography variant="h5" fontWeight="bold">Contato</Typography>
-                            <Button size="large" startIcon={<WhatsAppIcon />} sx={{ padding: '0px' }}>
-                                (12) 98888-8888
+                            <Button
+                                size="large"
+                                startIcon={<WhatsAppIcon sx={{ color: "#2ba048" }}/>}
+                                sx={{ padding: '0 5px' }}
+                                onClick={() => window.open('https://wa.me/5512996119002?text=Olá!', '_blank')}
+                            >
+                                (12) 99611-9002
                             </Button>
                         </Box>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
@@ -39,14 +43,14 @@ const Contact = () => {
 
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                             <Typography variant="h5" fontWeight="bold">Redes Sociais</Typography>
-                            <Box sx={{ display: 'flex', flexDirection: 'row', gap: 0.5, alignItems: "center" }}>
-                                <IconButton color="primary" aria-label="InstagramIcon" sx={{ padding: '0px' }}>
-                                    <InstagramIcon />
-                                </IconButton>
-                                <IconButton color="primary" aria-label="FacebookIcon" sx={{ padding: '0px' }}>
-                                    <FacebookIcon />
-                                </IconButton>
-                            </Box>
+                            <Button
+                                size="large"
+                                startIcon={<InstagramIcon sx={{ color: "#2ba048" }}/>}
+                                sx={{ padding: '0 5px', textTransform: 'none' }}
+                                onClick={() => window.open('https://www.instagram.com/paonblancestetica', '_blank')}
+                            >
+                                Instagram
+                            </Button>
                         </Box>
                     </Box>
                 </Box>

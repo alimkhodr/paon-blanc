@@ -4,6 +4,8 @@ import Services from "../sections/service-section/services"
 import Gallery from "../sections/gallery-section/gallery-section"
 import Contact from "../sections/contact-section/contact"
 import Form from "../sections/form-section/form"
+import { Fab } from "@mui/material"
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const Home = () => {
     return (
@@ -24,6 +26,13 @@ const Home = () => {
             <div id="">
                 <Contact />
             </div>
+            <Fab
+                color="primary"
+                sx={{ position: 'fixed', bottom: 20, right: 20, backgroundColor: "#2ba048" }}
+                onClick={() => window.open('https://wa.me/5512996119002?text=Olá!', '_blank')}
+            >
+                <WhatsAppIcon sx={{ color: "background.default" }} />
+            </Fab>
         </>
     )
 }

@@ -9,7 +9,7 @@ let theme = createTheme({
             main: '#383838',
             A100: '#0D7977',
             A200: '#0A6060',
-            A400: '#1A4848',
+            A400: '#2ba048',
         },
         background: {
             default: '#E2D8BC',
