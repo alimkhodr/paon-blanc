@@ -95,7 +95,12 @@ const NavBar = () => {
                 }}
             >
                 <StyledToolbar sx={{ borderRadius: { xs: 0, md: 50 } }}>
-                    <img src={Logo} alt="Logo" style={{ height: "50px", margin: '5px 40px 5px 40px' }} />
+                    <img
+                        src={Logo}
+                        alt="Logo"
+                        style={{ height: "50px", margin: '5px 40px 5px 40px', cursor: 'pointer' }}
+                        onClick={() => handleScrollToSection('slide')}
+                    />
                     <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', alignItems: 'center' }}>
                         {sections.map((section, index) => (
                             <>
@@ -116,7 +121,7 @@ const NavBar = () => {
                                         display: { xs: 'none', md: 'block' }
                                     }}
                                     component="a"
-                                    onClick={() => handleScrollToSection(section.id)} // Chama a função para rolar para a seção
+                                    onClick={() => handleScrollToSection(section.id)}
                                 >
                                     {section.label}
                                 </MenuItem>
