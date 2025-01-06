@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, TextField, MenuItem, Select, InputLabel, FormControl, styled, Typography } from "@mui/material";
+import { Container, TextField, MenuItem, Select, InputLabel, FormControl, styled, Typography, Snackbar, Alert } from "@mui/material";
 import StyledButtonGreen from "../../../components/StyledButton/StyledButtonGreen";
 import theme from "../../../theme";
 import services from "../../sections/service-section/services-data";
@@ -7,6 +7,8 @@ import services from "../../sections/service-section/services-data";
 const Form = () => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
+    const [openSnackbar, setOpenSnackbar] = useState(false);
+    const [severity, setSeverity] = useState<"success" | "error">("success");
 
     const StyledForm = styled("div")(({ theme }) => ({
         display: "flex",
@@ -53,12 +55,27 @@ const Form = () => {
             });
 
             const result = await response.text();
-            setMessage(result);
+
+            if (response.ok) {
+                setMessage(result);
+                setSeverity("success");
+            } else {
+                setMessage(result || "Erro ao enviar a mensagem. Tente novamente.");
+                setSeverity("error");
+            }
+
+            setOpenSnackbar(true);
         } catch (error) {
             setMessage("Erro ao enviar a mensagem. Tente novamente.");
+            setSeverity("error");
+            setOpenSnackbar(true);
         } finally {
             setLoading(false);
         }
+    };
+
+    const handleCloseSnackbar = () => {
+        setOpenSnackbar(false);
     };
 
     return (
@@ -109,9 +126,19 @@ const Form = () => {
                             {loading ? "Enviando..." : "Enviar"}
                         </StyledButtonGreen>
                     </form>
-                    {message && <Typography variant="body2" color="error">{message}</Typography>}
                 </StyledCard>
             </Container>
+
+            <Snackbar
+                open={openSnackbar}
+                autoHideDuration={6000}
+                onClose={handleCloseSnackbar}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            >
+                <Alert onClose={handleCloseSnackbar} severity={severity} sx={{ width: "100%" }}>
+                    {message}
+                </Alert>
+            </Snackbar>
         </StyledForm>
     );
 };
