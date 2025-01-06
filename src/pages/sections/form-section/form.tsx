@@ -21,10 +21,8 @@ const Form = () => {
         width: '80%',
     }));
 
-    const procedimentos = services.flatMap(service => service.items.map(item => {
-        const procedimento = item.text.split(' - ')[0];
-        return procedimento;
-    }));
+    const procedimentos = services.flatMap(service => service.items.map(item => item.text));
+
     return (
         <StyledForm>
             <Container

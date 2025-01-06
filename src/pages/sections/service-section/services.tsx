@@ -27,10 +27,10 @@ const Service = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<{
     category: string;
-    items: { text: string }[];
+    items: { text: string; price: string }[];
   } | null>(null);
 
-  const handleOpenModal = (service: { category: string; items: { text: string }[] }) => {
+  const handleOpenModal = (service: { category: string; items: { text: string; price: string }[] }) => {
     setSelectedService(service);
     setModalOpen(true);
   };
@@ -109,7 +109,7 @@ const Service = () => {
                   </Typography>
                   {service.items.slice(0, 3).map((item, idx) => (
                     <Typography key={idx} variant="body2">
-                      {item.text}
+                      {item.text} - R$ {item.price}
                     </Typography>
                   ))}
                   {service.items.length > 3 && (
@@ -135,8 +135,8 @@ const Service = () => {
           open={modalOpen}
           handleClose={handleCloseModal}
           category={selectedService.category}
-          text={selectedService.items.map(item => item.text).join('\n')}
-        />
+          item={selectedService?.items?.map(item => `${item.text} - R$ ${item.price}`).join('\n') || ''}
+          />
       )}
     </StyledServices>
   );

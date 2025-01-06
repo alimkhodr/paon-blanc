@@ -5,10 +5,10 @@ interface Props {
   open: boolean;
   handleClose: () => void;
   category: string;
-  text: string;
+  item: string;
 }
 
-const ServiceModal: React.FC<Props> = ({ open, handleClose, category, text }) => {
+const ServiceModal: React.FC<Props> = ({ open, handleClose, category, item }) => {
   return (
     <Modal
       open={open}
@@ -23,8 +23,8 @@ const ServiceModal: React.FC<Props> = ({ open, handleClose, category, text }) =>
           left: '50%',
           transform: 'translate(-50%, -50%)',
           bgcolor: 'background.paper',
-          minWidth: '80%',
           border: 'none',
+          minWidth: { xs: '80%', md: '0px' },
           boxShadow: 24,
           p: 4,
           borderRadius: 2,
@@ -44,9 +44,9 @@ const ServiceModal: React.FC<Props> = ({ open, handleClose, category, text }) =>
           {category}
         </Typography>
 
-        <Typography id="modal-description" sx={{ mt: 2 }}>
-          {text.split('\n').map((line, idx) => (
-            <Typography key={idx} variant="body2" sx={{ mb: 2 }}>
+        <Typography id="modal-description" sx={{ mt: 1 }}>
+          {item.split('\n').map((line, idx) => (
+            <Typography key={idx} variant="body2" sx={{ mb: 1 }}>
               {line}
             </Typography>
           ))}
