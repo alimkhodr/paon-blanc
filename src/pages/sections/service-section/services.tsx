@@ -41,10 +41,7 @@ const Service = () => {
   };
 
   const StyledServices = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    paddingTop: '40px',
-    paddingBottom: '50px',
+    padding: '40px 0px',
     backgroundColor: theme.palette.background.paper,
   }));
 
@@ -62,7 +59,7 @@ const Service = () => {
 
   return (
     <StyledServices>
-      <Container maxWidth="lg">
+      <Container>
         <Typography
           variant="h3"
           textAlign="center"

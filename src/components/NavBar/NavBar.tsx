@@ -2,7 +2,7 @@ import { AppBar, MenuItem, styled, Toolbar, IconButton, Drawer, List, ListItem, 
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect } from "react";
 import theme from "../../theme";
-import Logo from "../../assets/images/logo/logo_deitada.svg";
+import Logo from "../../assets/logo/logo_deitada.svg";
 
 const slideDown = keyframes`
   from {
@@ -20,8 +20,8 @@ const NavBar = () => {
     const sections = [
         { id: 'slide', label: 'Home' },
         { id: 'services', label: 'Procedimentos' },
-        { id: 'about', label: 'Sobre' },
-        { id: 'contact', label: 'Contato' }
+        { id: 'gallery', label: 'Fotos' },
+        { id: 'contact', label: 'Contato' },
     ];
 
     const StyledToolbar = styled(Toolbar)(() => ({
@@ -64,7 +64,22 @@ const NavBar = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    },);
+    }, []);
+
+    const handleScrollToSection = (sectionId: string) => {
+        const sectionElement = document.getElementById(sectionId);
+        if (sectionElement) {
+            window.scrollTo({
+                top: sectionElement.offsetTop - 80,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    const handleDrawerItemClick = (sectionId: string) => {
+        handleScrollToSection(sectionId);
+        handleDrawerToggle();
+    };
 
     return (
         <>
@@ -101,7 +116,7 @@ const NavBar = () => {
                                         display: { xs: 'none', md: 'block' }
                                     }}
                                     component="a"
-                                    href={`#${section.id}`}
+                                    onClick={() => handleScrollToSection(section.id)} // Chama a função para rolar para a seção
                                 >
                                     {section.label}
                                 </MenuItem>
@@ -136,9 +151,7 @@ const NavBar = () => {
                         <ListItem
                             key={section.id}
                             button
-                            component="a"
-                            href={`#${section.id}`}
-                            onClick={handleDrawerToggle}
+                            onClick={() => handleDrawerItemClick(section.id)} // Chama a função de rolagem e fecha o Drawer
                             sx={{
                                 backgroundColor: activeSection === section.id ? theme.palette.background.default : 'transparent',
                                 color: activeSection === section.id ? theme.palette.primary.main : 'inherit'
