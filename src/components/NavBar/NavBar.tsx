@@ -64,7 +64,7 @@ const NavBar = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    },);
 
     const handleScrollToSection = (sectionId: string) => {
         const sectionElement = document.getElementById(sectionId);

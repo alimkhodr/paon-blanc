@@ -35,6 +35,7 @@ const Gallery = () => {
             {images.map((item) => (
               <ImageListItem key={item.img}>
                 <img
+                  style={{ borderRadius: 5 }}
                   srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   src={`${item.img}?w=248&fit=crop&auto=format`}
                   alt={item.title}
