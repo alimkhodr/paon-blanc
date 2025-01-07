@@ -42,7 +42,7 @@ const Service = () => {
 
   const StyledServices = styled('div')(({ theme }) => ({
     padding: '40px 0px',
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.primary.main,
   }));
 
   const StyledCard = styled('div')(() => ({
