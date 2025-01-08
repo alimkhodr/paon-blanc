@@ -65,10 +65,15 @@ const Service = () => {
           variant="h3"
           textAlign="center"
           fontWeight="bold"
+          color={'background.default'}
         >
           Serviços e preços
         </Typography>
-        <Typography variant="body1" textAlign="center">
+        <Typography
+          variant="body1"
+          textAlign="center"
+          color={'background.default'}
+        >
           Nossos serviços disponíveis
         </Typography>
 
@@ -137,7 +142,7 @@ const Service = () => {
           handleClose={handleCloseModal}
           category={selectedService.category}
           item={selectedService?.items?.map(item => `${item.text} - R$ ${item.price}`).join('\n') || ''}
-          />
+        />
       )}
     </StyledServices>
   );
