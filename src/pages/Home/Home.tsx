@@ -5,7 +5,7 @@ import Gallery from "../sections/gallery-section/gallery-section"
 import Contact from "../sections/contact-section/contact"
 import Form from "../sections/form-section/form"
 import { Fab } from "@mui/material"
-import Products from "../sections/products-section/products"
+// import Products from "../sections/products-section/products"
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const Home = () => {
@@ -18,9 +18,9 @@ const Home = () => {
             <div id="services">
                 <Services />
             </div>
-            <div id="products">
+            {/* <div id="products">
                 <Products />
-            </div>
+            </div> */}
             <div id="gallery">
                 <Gallery />
             </div>

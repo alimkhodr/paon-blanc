@@ -20,7 +20,7 @@ const NavBar = () => {
     const sections = [
         { id: 'slide', label: 'Home' },
         { id: 'services', label: 'Procedimentos' },
-        { id: 'products', label: 'Produtos' },
+        // { id: 'products', label: 'Produtos' },
         { id: 'gallery', label: 'Fotos' },
         { id: 'contact', label: 'Contato' },
     ];
