@@ -19,7 +19,7 @@ const SwiperContainer = styled(Box)(() => ({
     display: 'none',
   },
   '.swiper-pagination-bullet': {
-    background: theme.palette.primary.main,
+    background: theme.palette.background.default,
   },
 }));
 
