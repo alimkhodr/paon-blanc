@@ -7,9 +7,12 @@ interface Product {
   id: string;
   name: string;
   price: number;
-  baseUrl: string;
   images: { imageUrl: string }[];
-  variants: { options: { code: string; slugName: string; } };
+  code: string;
+  slugName: string;
+  isBundle: boolean;
+  isNew: boolean;
+  isPopular: boolean;
 }
 
 const Products = () => {
@@ -83,7 +86,8 @@ const Products = () => {
                 image={product.images[0]?.imageUrl || ''}
                 product={product.name}
                 price={product.price.toFixed(2).replace('.', ',')}
-                url={`https://farmasi.com.br/paonblanccosmeticos/product-detail/${product.variants?.[0]?.options?.[0]?.slugName}?pid=${product.variants?.[0]?.options?.[0]?.code}`}
+                url={`https://farmasi.com.br/paonblanccosmeticos/product-detail/${product.slugName}?pid=${product.code}`}
+                type={product.isBundle ? 'Pacote' : product.isNew ? 'Novo' : product.isPopular ? 'Popular' : ''}
               />
             </Grid>
           ))}

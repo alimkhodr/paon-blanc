@@ -6,6 +6,7 @@ interface Props {
   product: string;
   price: string;
   url: string;
+  type: string;
 }
 
 const StyledCard = styled('div')(({ theme }) => ({
@@ -23,11 +24,20 @@ const StyledCard = styled('div')(({ theme }) => ({
   },
 }));
 
-const ProductCard: React.FC<Props> = ({ image, product, price, url }) => {
+const ProductCard: React.FC<Props> = ({ image, product, price, url, type }) => {
   return (
     <StyledCard>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', padding: 1 }}>
-        <Chip size="small" label="Novo" sx={{ backgroundColor: "#2ba048", color: "white", borderRadius: 1 }} />
+        <Chip
+          size="small"
+          label={type}
+          sx={{
+            backgroundColor: type === "Pacote" ? "#bec5da" : type === "Novo" ? "#2ba048" : type === "Popular" ? '#d6beda' : '',
+            color: "white",
+            borderRadius: 1,
+            display: type === '' ? 'none' : 'flex'
+          }}
+        />
       </Box>
       <CardMedia
         sx={{ height: 170 }}
