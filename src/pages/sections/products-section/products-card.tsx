@@ -18,7 +18,8 @@ const StyledCard = styled('div')(({ theme }) => ({
   borderRadius: 5,
   border: `1px solid #ccc`,
   transition: "transform 0.3s ease",
-  minWidth: 150,
+  width: '100%',
+  maxWidth: 280,
   "&:hover": {
     transform: 'scale(1.03)',
   },

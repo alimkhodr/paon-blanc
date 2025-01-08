@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Container, styled, Typography, Grid, Pagination, Link } from '@mui/material';
 import ProductCard from './products-card';
 import axios from 'axios';
@@ -18,7 +18,9 @@ interface Product {
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 8;
+  const productsPerPage = 2;
+
+  const topRef = useRef<HTMLDivElement | null>(null);
 
   const StyledProducts = styled('div')(({ theme }) => ({
     padding: '40px 0px',
@@ -44,7 +46,6 @@ const Products = () => {
         allProducts.forEach(product => {
           if (!uniqueProductsMap.has(product.id)) {
             uniqueProductsMap.set(product.id, product);
-            console.log('uniqueProductsMap', uniqueProductsMap);
           }
         });
         setProducts(Array.from(uniqueProductsMap.values()));
@@ -60,18 +61,27 @@ const Products = () => {
   const endIndex = startIndex + productsPerPage;
   const displayedProducts = products.slice(startIndex, endIndex);
 
+  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+    setCurrentPage(value);
+    topRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <StyledProducts>
+      <div ref={topRef}>
+        <Container>
+          <Typography variant="h3" textAlign="center" fontWeight="bold">
+            Produtos
+          </Typography>
+          <Typography variant="body1" textAlign="center">
+            Em parceria com&nbsp;
+            <Link href="https://farmasi.com.br/paonblanccosmeticos" underline="always">
+              {'Farmasi'}
+            </Link>
+          </Typography>
+        </Container>
+      </div>
       <Container>
-        <Typography variant="h3" textAlign="center" fontWeight="bold">
-          Produtos
-        </Typography>
-        <Typography variant="body1" textAlign="center">
-          Em parceria com&nbsp;
-          <Link href="https://farmasi.com.br/paonblanccosmeticos" underline="always">
-            {'Farmasi'}
-          </Link>
-        </Typography>
         <Grid container spacing={2} justifyContent="center" mt={3}>
           {displayedProducts.map(product => (
             <Grid
@@ -95,7 +105,7 @@ const Products = () => {
         <Pagination
           count={Math.ceil(products.length / productsPerPage)}
           page={currentPage}
-          onChange={(_event, value) => setCurrentPage(value)}
+          onChange={handlePageChange}
           color="primary"
           sx={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}
         />
