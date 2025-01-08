@@ -95,7 +95,7 @@ const Products = () => {
         <Pagination
           count={Math.ceil(products.length / productsPerPage)}
           page={currentPage}
-          onChange={(event, value) => setCurrentPage(value)}
+          onChange={(_event, value) => setCurrentPage(value)}
           color="primary"
           sx={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}
         />
