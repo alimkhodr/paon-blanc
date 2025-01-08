@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Container, styled, Typography, Grid, Pagination, Link } from '@mui/material';
+import { Container, styled, Typography, Grid, Pagination, Link, useMediaQuery, useTheme } from '@mui/material';
 import ProductCard from './products-card';
 import axios from 'axios';
 
@@ -18,7 +18,10 @@ interface Product {
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 2;
+
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const productsPerPage = isDesktop ? 8 : 4;
 
   const topRef = useRef<HTMLDivElement | null>(null);
 
