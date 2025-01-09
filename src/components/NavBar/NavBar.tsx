@@ -91,12 +91,12 @@ const NavBar = () => {
                     boxShadow: 'none',
                     backgroundColor: 'transparent',
                     display: "flex",
-                    alignItems: { xs: 'stretch', md: 'center' },
-                    padding: { xs: '0px', md: '15px' },
+                    alignItems: { xs: 'stretch', lg: 'center' },
+                    padding: { xs: '0px', lg: '15px' },
                     animation: `${slideDown} 0.5s ease-out`,
                 }}
             >
-                <StyledToolbar sx={{ borderRadius: { xs: 0, md: 50 } }}>
+                <StyledToolbar sx={{ borderRadius: { xs: 0, lg: 50 } }}>
                     <img
                         src={Logo}
                         alt="Logo"
@@ -120,7 +120,7 @@ const NavBar = () => {
                                             backgroundColor: theme.palette.background.default,
                                             color: theme.palette.secondary.main,
                                         },
-                                        display: { xs: 'none', md: 'block' }
+                                        display: { xs: 'none', lg: 'block' } // Atualizado para usar lg
                                     }}
                                     component="a"
                                     onClick={() => handleScrollToSection(section.id)}
@@ -129,7 +129,7 @@ const NavBar = () => {
                                 </MenuItem>
 
                                 {index < sections.length - 1 && (
-                                    <Typography sx={{ display: { xs: 'none', md: 'block', color: theme.palette.background.default } }}>
+                                    <Typography sx={{ display: { xs: 'none', lg: 'block', color: theme.palette.background.default } }}>
                                         \\
                                     </Typography>
                                 )}
@@ -140,7 +140,7 @@ const NavBar = () => {
                         edge="end"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ display: { xs: 'flex', md: 'none' } }}
+                        sx={{ display: { xs: 'flex', lg: 'none' } }} // Atualizado para usar lg
                         onClick={handleDrawerToggle}
                     >
                         <MenuIcon />
@@ -151,14 +151,14 @@ const NavBar = () => {
                 anchor="right"
                 open={open}
                 onClose={handleDrawerToggle}
-                sx={{ display: { xs: 'block', md: 'none' }, '& .MuiDrawer-default': { backgroundColor: theme.palette.background.default, color: theme.palette.primary.main } }}
+                sx={{ display: { xs: 'block', lg: 'none' }, '& .MuiDrawer-default': { backgroundColor: theme.palette.background.default, color: theme.palette.primary.main } }}
             >
                 <List>
                     {sections.map((section) => (
                         <ListItem
                             key={section.id}
                             button
-                            onClick={() => handleDrawerItemClick(section.id)} // Chama a função de rolagem e fecha o Drawer
+                            onClick={() => handleDrawerItemClick(section.id)}
                             sx={{
                                 backgroundColor: activeSection === section.id ? theme.palette.background.default : 'transparent',
                                 color: activeSection === section.id ? theme.palette.primary.main : 'inherit'
