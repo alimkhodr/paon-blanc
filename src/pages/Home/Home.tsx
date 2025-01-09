@@ -31,17 +31,26 @@ const Home = () => {
             <div id="contact">
                 <Contact />
             </div>
+            <div style={{ position: 'sticky', bottom: 0}}>
+                <Fab
+                    color="primary"
+                    sx={{
+                        position: 'absolute',
+                        bottom: 20,
+                        right: 20,
+                        backgroundColor: "#2ba048"
+                    }}
+                    onClick={() => window.open('https://wa.me/5512996119002?text=Olá!', '_blank')}
+                >
+                    <WhatsAppIcon sx={{ color: "background.default" }} />
+                </Fab>
+            </div>
+
             <div id="footer">
                 <Footer />
             </div>
-            <Fab
-                color="primary"
-                sx={{ position: 'fixed', bottom: 20, right: 20, backgroundColor: "#2ba048" }}
-                onClick={() => window.open('https://wa.me/5512996119002?text=Olá!', '_blank')}
-            >
-                <WhatsAppIcon sx={{ color: "background.default" }} />
-            </Fab>
         </>
     )
 }
+
 export default Home
