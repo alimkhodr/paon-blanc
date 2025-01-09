@@ -31,7 +31,7 @@ const Home = () => {
             <div id="contact">
                 <Contact />
             </div>
-            <div style={{ position: 'sticky', bottom: 0}}>
+            <div style={{ position: 'sticky', bottom: 0, zIndex: 2 }}>
                 <Fab
                     color="primary"
                     sx={{
