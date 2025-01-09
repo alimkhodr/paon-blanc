@@ -25,7 +25,7 @@ const Contact = () => {
                             <Typography variant="h5" fontWeight="bold">Contato</Typography>
                             <Button
                                 size="large"
-                                startIcon={<WhatsAppIcon sx={{ color: "#2ba048" }}/>}
+                                startIcon={<WhatsAppIcon sx={{ color: "#2ba048" }} />}
                                 sx={{ padding: '0 5px' }}
                                 onClick={() => window.open('https://wa.me/5512996119002?text=Olá!', '_blank')}
                             >
@@ -37,7 +37,10 @@ const Contact = () => {
                             <Typography variant="body1" textAlign='left'>
                                 R. dos Piquiroes, 40 - Jd. Aquarius<br />
                                 Edifício Infinity - Sala 808<br />
-                                São José dos Campos - SP
+                                São José dos Campos - SP<br />
+                                <Typography variant="button" fontWeight="bold">
+                                    Estacionamento gratuito
+                                </Typography>
                             </Typography>
                         </Box>
 
@@ -45,11 +48,11 @@ const Contact = () => {
                             <Typography variant="h5" fontWeight="bold">Redes Sociais</Typography>
                             <Button
                                 size="large"
-                                startIcon={<InstagramIcon sx={{ color: "#2ba048" }}/>}
+                                startIcon={<InstagramIcon sx={{ color: "#2ba048" }} />}
                                 sx={{ padding: '0 5px', textTransform: 'none' }}
                                 onClick={() => window.open('https://www.instagram.com/paonblancestetica', '_blank')}
                             >
-                                Instagram
+                                @paonblancestetica
                             </Button>
                         </Box>
                     </Box>

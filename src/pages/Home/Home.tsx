@@ -7,6 +7,7 @@ import Form from "../sections/form-section/form"
 import { Fab } from "@mui/material"
 import Products from "../sections/products-section/products"
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import Footer from "../sections/footer-section/footer"
 
 const Home = () => {
     return (
@@ -27,8 +28,11 @@ const Home = () => {
             <div id="contact">
                 <Form />
             </div>
-            <div id="">
+            <div id="contact">
                 <Contact />
+            </div>
+            <div id="footer">
+                <Footer />
             </div>
             <Fab
                 color="primary"

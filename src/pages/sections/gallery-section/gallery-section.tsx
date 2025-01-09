@@ -31,7 +31,7 @@ const Gallery = () => {
         </Typography>
 
         <Box sx={{ mt: 4 }}>
-          <ImageList variant="masonry" cols={3} gap={8}>
+          <ImageList cols={3} gap={15}>
             {images.map((item) => (
               <ImageListItem key={item.img}>
                 <img

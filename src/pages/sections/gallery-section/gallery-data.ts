@@ -51,6 +51,14 @@ const images = [
         img: 'https://i.pinimg.com/474x/44/01/f3/4401f354ecc7d655b775d321f3428f91.jpg',
         title: 'Coffee table',
     },
+    {
+        img: 'https://i.pinimg.com/736x/05/9e/d8/059ed877a552ac0a7e3ac60f57745729.jpg',
+        title: 'Bed',
+    },
+    {
+        img: 'https://i.pinimg.com/736x/da/cd/ff/dacdff5b40111e01692cfe6808ee49b8.jpg',
+        title: 'Books',
+    },
 ];
 
 export default images;
