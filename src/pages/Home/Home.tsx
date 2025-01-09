@@ -28,7 +28,7 @@ const Home = () => {
             <div id="contact">
                 <Form />
             </div>
-            <div id="contact">
+            <div id="address">
                 <Contact />
             </div>
             <div style={{ position: 'sticky', bottom: 0, zIndex: 2 }}>

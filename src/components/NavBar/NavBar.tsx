@@ -23,6 +23,7 @@ const NavBar = () => {
         { id: 'products', label: 'Produtos' },
         { id: 'gallery', label: 'Fotos' },
         { id: 'contact', label: 'Contato' },
+        { id: 'address', label: 'Endereço' },
     ];
 
     const StyledToolbar = styled(Toolbar)(() => ({
