@@ -19,7 +19,8 @@ const SwiperContainer = styled(Box)(() => ({
     display: 'none',
   },
   '.swiper-pagination-bullet': {
-    background: theme.palette.background.default,
+    // background: theme.palette.background.default,
+    background: theme.palette.primary.main,
   },
 }));
 
@@ -42,7 +43,8 @@ const Service = () => {
 
   const StyledServices = styled('div')(({ theme }) => ({
     padding: '40px 0px',
-    backgroundColor: theme.palette.primary.main,
+    // backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.background.paper,
   }));
 
   const StyledCard = styled('div')(() => ({
@@ -56,6 +58,8 @@ const Service = () => {
     justifyContent: 'flex-start',
     backgroundColor: theme.palette.background.default,
     alignItems: 'flex-start',
+    width: '100%',
+    maxWidth: 280,
   }));
 
   return (
@@ -65,14 +69,14 @@ const Service = () => {
           variant="h3"
           textAlign="center"
           fontWeight="bold"
-          color={'background.default'}
+          // color={'background.default'}
         >
           Serviços e preços
         </Typography>
         <Typography
           variant="body1"
           textAlign="center"
-          color={'background.default'}
+          // color={'background.default'}
         >
           Nossos serviços disponíveis
         </Typography>
@@ -99,7 +103,7 @@ const Service = () => {
             }}
           >
             {services.map((service, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} style={{ display: 'flex', justifyContent: 'center' }}>
                 <StyledCard>
                   <img
                     src={service.img}
