@@ -19,8 +19,7 @@ const SwiperContainer = styled(Box)(() => ({
     display: 'none',
   },
   '.swiper-pagination-bullet': {
-    // background: theme.palette.background.default,
-    background: theme.palette.primary.main,
+    background: theme.palette.background.default,
   },
 }));
 
@@ -43,8 +42,7 @@ const Service = () => {
 
   const StyledServices = styled('div')(({ theme }) => ({
     padding: '40px 0px',
-    // backgroundColor: theme.palette.primary.main,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.primary.main,
   }));
 
   const StyledCard = styled('div')(() => ({
@@ -69,14 +67,14 @@ const Service = () => {
           variant="h3"
           textAlign="center"
           fontWeight="bold"
-          // color={'background.default'}
+          color={'background.default'}
         >
           Serviços e preços
         </Typography>
         <Typography
           variant="body1"
           textAlign="center"
-          // color={'background.default'}
+          color={'background.default'}
         >
           Nossos serviços disponíveis
         </Typography>
@@ -127,7 +125,7 @@ const Service = () => {
                       sx={{ textTransform: 'none', padding: 0, mt: '-5px' }}
                       onClick={() => handleOpenModal(service)}
                     >
-                      Ler mais
+                      VER MAIS
                     </Button>
                   )}
                   <StyledButtonGreen startIcon={<WhatsApp />}>
