@@ -51,10 +51,8 @@ const Service = () => {
     items: { text: string; price: string }[];
   } | null>(null);
 
-  // Estado para armazenar o slide atual
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Memoização para evitar recriação de dados do carrossel
   const memoizedServices = useMemo(() => services, []);
 
   const handleOpenModal = (service: { category: string; items: { text: string; price: string }[] }) => {
@@ -88,8 +86,8 @@ const Service = () => {
 
         <SwiperContainer sx={{ mt: 4 }}>
           <Swiper
-            onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)} // Atualiza o slide atual
-            initialSlide={currentSlide} // Preserva o slide atual
+            onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
+            initialSlide={currentSlide}
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={16}
             slidesPerView={1}
@@ -125,8 +123,8 @@ const Service = () => {
                     {service.category}
                   </Typography>
                   {service.items.slice(0, 4).map((item, idx) => (
-                    <Typography key={idx} variant="body2">
-                      {item.text} - R$ {item.price}
+                    <Typography key={idx} variant="body2" fontWeight={(item.text === "FEMININO" || item.text === "MASCULINO") ? 'bold' : 'normal'}>
+                      {item.text} {(item.text === "FEMININO" || item.text === "MASCULINO") ? '' : "- R$"} {item.price}
                     </Typography>
                   ))}
                   {service.items.length > 3 && (
@@ -137,7 +135,7 @@ const Service = () => {
                       VER MAIS
                     </Button>
                   )}
-                  <StyledButtonGreen 
+                  <StyledButtonGreen
                     startIcon={<WhatsApp />}
                     onClick={() => window.open(`https://wa.me/5512996119002?text=Ol%C3%A1!%0AGostaria%20de%20agendar%20uma%20sessão%20de%20*${service.category}*.`, '_blank')}
                   >
@@ -154,10 +152,10 @@ const Service = () => {
         <ServiceModal
           open={modalOpen}
           handleClose={handleCloseModal}
-          keepMounted 
+          keepMounted
           category={selectedService.category}
           item={selectedService.items
-            .map((item) => `${item.text} - R$ ${item.price}`)
+            .map((item) => `${item.text} ${(item.text === "FEMININO" || item.text === "MASCULINO") ? "" : `- R$ ${item.price}`}`)
             .join('\n')}
         />
       )}

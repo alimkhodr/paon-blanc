@@ -79,9 +79,10 @@ const services = [
     ],
   },
   {
-    category: 'Depilação Lazer (F)',
+    category: 'Depilação Lazer',
     img: Massagem,
     items: [
+      { text: 'FEMININO', price: '' },
       { text: 'Buço', price: '52,00' },
       { text: 'Queixo/Pescoço', price: '52,00' },
       { text: 'Lateral do Rosto', price: '52,00' },
@@ -95,12 +96,7 @@ const services = [
       { text: 'Meia Perna', price: '129,00' },
       { text: 'Perna', price: '259,00' },
       { text: 'Costas', price: '189,00' },
-    ],
-  },
-  {
-    category: 'Depilação Lazer (M)',
-    img: Massagem,
-    items: [
+      { text: 'MASCULINO', price: '' },
       { text: 'Barba Completa', price: '179,00' },
       { text: 'Pescoço e Maçãs', price: '79,00' },
       { text: 'Axilas', price: '89,00' },
