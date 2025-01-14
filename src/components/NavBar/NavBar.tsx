@@ -1,8 +1,9 @@
-import { AppBar, MenuItem, styled, Toolbar, IconButton, Drawer, List, ListItem, ListItemText, Typography, keyframes } from "@mui/material";
+import { AppBar, MenuItem, styled, Toolbar, IconButton, Drawer, List, ListItem, ListItemText, Typography, keyframes, useMediaQuery } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect } from "react";
 import theme from "../../theme";
-import Logo from "../../assets/logo/logo_deitada.svg";
+import logo_deitada from "../../assets/logo/logo_deitada.svg";
+import logo_blanc from "../../assets/logo/logo_blanc.svg";
 
 const slideDown = keyframes`
   from {
@@ -16,6 +17,7 @@ const slideDown = keyframes`
 const NavBar = () => {
     const [open, setOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('slide');
+    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
     const sections = [
         { id: 'slide', label: 'Home' },
@@ -98,9 +100,9 @@ const NavBar = () => {
             >
                 <StyledToolbar sx={{ borderRadius: { xs: 0, lg: 50 } }}>
                     <img
-                        src={Logo}
+                        src={isDesktop ? logo_deitada : logo_blanc }
                         alt="Logo"
-                        style={{ height: "50px", margin: '5px 40px 5px 40px', cursor: 'pointer' }}
+                        style={{ height: "60px", margin: '5px 30px 5px 30px', cursor: 'pointer' }}
                         onClick={() => handleScrollToSection('slide')}
                     />
                     <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', alignItems: 'center' }}>

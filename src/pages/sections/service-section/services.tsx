@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -10,6 +10,27 @@ import StyledButtonGreen from '../../../components/StyledButton/StyledButtonGree
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import services from './services-data';
 import ServiceModal from './service-modal';
+
+// Estilos fora do componente para evitar recriação desnecessária
+const StyledServices = styled('div')(({ theme }) => ({
+  padding: '40px 0px',
+  backgroundColor: theme.palette.primary.main,
+}));
+
+const StyledCard = styled('div')(() => ({
+  marginBottom: '40px',
+  borderRadius: 5,
+  border: 'none',
+  padding: 25,
+  display: 'flex',
+  gap: 8,
+  flexDirection: 'column',
+  justifyContent: 'flex-start',
+  backgroundColor: theme.palette.background.default,
+  alignItems: 'flex-start',
+  width: '100%',
+  maxWidth: 280,
+}));
 
 const SwiperContainer = styled(Box)(() => ({
   '.swiper-button-next:after': {
@@ -30,6 +51,12 @@ const Service = () => {
     items: { text: string; price: string }[];
   } | null>(null);
 
+  // Estado para armazenar o slide atual
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Memoização para evitar recriação de dados do carrossel
+  const memoizedServices = useMemo(() => services, []);
+
   const handleOpenModal = (service: { category: string; items: { text: string; price: string }[] }) => {
     setSelectedService(service);
     setModalOpen(true);
@@ -39,26 +66,6 @@ const Service = () => {
     setModalOpen(false);
     setSelectedService(null);
   };
-
-  const StyledServices = styled('div')(({ theme }) => ({
-    padding: '40px 0px',
-    backgroundColor: theme.palette.primary.main,
-  }));
-
-  const StyledCard = styled('div')(() => ({
-    marginBottom: '40px',
-    borderRadius: 5,
-    border: 'none',
-    padding: 25,
-    display: 'flex',
-    gap: 8,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    backgroundColor: theme.palette.background.default,
-    alignItems: 'flex-start',
-    width: '100%',
-    maxWidth: 280,
-  }));
 
   return (
     <StyledServices>
@@ -81,6 +88,8 @@ const Service = () => {
 
         <SwiperContainer sx={{ mt: 4 }}>
           <Swiper
+            onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)} // Atualiza o slide atual
+            initialSlide={currentSlide} // Preserva o slide atual
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={16}
             slidesPerView={1}
@@ -100,7 +109,7 @@ const Service = () => {
               },
             }}
           >
-            {services.map((service, index) => (
+            {memoizedServices.map((service, index) => (
               <SwiperSlide key={index} style={{ display: 'flex', justifyContent: 'center' }}>
                 <StyledCard>
                   <img
@@ -115,14 +124,14 @@ const Service = () => {
                   >
                     {service.category}
                   </Typography>
-                  {service.items.slice(0, 3).map((item, idx) => (
+                  {service.items.slice(0, 4).map((item, idx) => (
                     <Typography key={idx} variant="body2">
                       {item.text} - R$ {item.price}
                     </Typography>
                   ))}
                   {service.items.length > 3 && (
                     <Button
-                      sx={{ textTransform: 'none', padding: 0, mt: '-5px' }}
+                      sx={{ textTransform: 'none', padding: '3px 0px' }}
                       onClick={() => handleOpenModal(service)}
                     >
                       VER MAIS
@@ -142,8 +151,11 @@ const Service = () => {
         <ServiceModal
           open={modalOpen}
           handleClose={handleCloseModal}
+          keepMounted 
           category={selectedService.category}
-          item={selectedService?.items?.map(item => `${item.text} - R$ ${item.price}`).join('\n') || ''}
+          item={selectedService.items
+            .map((item) => `${item.text} - R$ ${item.price}`)
+            .join('\n')}
         />
       )}
     </StyledServices>

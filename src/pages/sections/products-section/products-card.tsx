@@ -60,7 +60,7 @@ const ProductCard: React.FC<Props> = ({ image, product, price, url, type }) => {
           size="small"
           onClick={() => window.open(url, '_blank')}
         >
-          Saber mais
+          Confira
         </StyledButtonGreen>
       </CardActions>
     </StyledCard>

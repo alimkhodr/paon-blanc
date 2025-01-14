@@ -6,15 +6,17 @@ interface Props {
   handleClose: () => void;
   category: string;
   item: string;
+  keepMounted?: boolean;
 }
 
-const ServiceModal: React.FC<Props> = ({ open, handleClose, category, item }) => {
+const ServiceModal: React.FC<Props> = ({ open, handleClose, category, item, keepMounted }) => {
   return (
     <Modal
       open={open}
       onClose={handleClose}
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
+      keepMounted={keepMounted}
     >
       <Box
         sx={{
