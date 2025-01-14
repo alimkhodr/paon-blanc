@@ -68,10 +68,17 @@ const Slide = () => {
               }}
             >
               <Box>
-                <Typography variant="h4" fontWeight="bold">
+                <Typography 
+                  variant="h4" 
+                  fontWeight="bold"
+                  sx={{ whiteSpace: 'nowrap' }}
+                >
                   {slide.title}
                 </Typography>
-                <Typography variant="h6">
+                <Typography 
+                  variant="h6" 
+                  sx={{ whiteSpace: 'nowrap' }}
+                >
                   {slide.subtitle}
                 </Typography>
               </Box>
@@ -79,6 +86,7 @@ const Slide = () => {
                 variant="body1"
                 component="div"
                 dangerouslySetInnerHTML={{ __html: slide.text }}
+                sx={{ whiteSpace: 'nowrap' }}
               />
               <StyledButton
                 variant="contained"
