@@ -9,7 +9,7 @@ const slides = [
     buttonText: 'Agendar',
   },
   {
-    img: 'https://audioderma.com.br/wp-content/uploads/2019/08/estetica-corporal-1.png',
+    img: 'https://i.pinimg.com/474x/44/01/f3/4401f354ecc7d655b775d321f3428f91.jpg',
     title: 'Estética Facial',
     subtitle: 'Pacote mensal',
     text: '2 manutenções de cílios<br/>+2 designs de sobrancelas<br/><span style="font-weight:bold">R$250,00</span>',
