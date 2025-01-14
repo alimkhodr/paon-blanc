@@ -102,7 +102,7 @@ const Service = () => {
                 slidesPerView: 1,
               },
               500: {
-                slidesPerView: 2,
+                slidesPerView: 1,
               },
               800: {
                 slidesPerView: 3,
@@ -137,7 +137,10 @@ const Service = () => {
                       VER MAIS
                     </Button>
                   )}
-                  <StyledButtonGreen startIcon={<WhatsApp />}>
+                  <StyledButtonGreen 
+                    startIcon={<WhatsApp />}
+                    onClick={() => window.open(`https://wa.me/5512996119002?text=Ol%C3%A1!%0AGostaria%20de%20agendar%20uma%20sessão%20de%20*${service.category}*.`, '_blank')}
+                  >
                     Agendar
                   </StyledButtonGreen>
                 </StyledCard>

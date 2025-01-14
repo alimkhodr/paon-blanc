@@ -1,6 +1,7 @@
 import { Box, Button, Container, styled, Typography } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 const Contact = () => {
     const StyledContact = styled('div')(({ theme }) => ({
@@ -30,6 +31,14 @@ const Contact = () => {
                                 onClick={() => window.open('https://wa.me/5512996119002?text=Olá!', '_blank')}
                             >
                                 (12) 99611-9002
+                            </Button>
+                            <Button
+                                size="large"
+                                startIcon={<MailOutlineIcon sx={{ color: "#2ba048" }} />}
+                                sx={{ padding: '0 5px', textTransform: 'none' }}
+                                onClick={() => window.open('mailto:paonblancestetica@gmail.com', '_blank')}
+                            >
+                                paonblancestetica@gmail.com
                             </Button>
                         </Box>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
