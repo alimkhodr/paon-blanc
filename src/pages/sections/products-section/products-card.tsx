@@ -20,6 +20,7 @@ const StyledCard = styled('div')(({ theme }) => ({
   transition: "transform 0.3s ease",
   width: '100%',
   maxWidth: 280,
+  justifyContent: 'space-between',
   "&:hover": {
     transform: 'scale(1.03)',
   },
@@ -28,7 +29,7 @@ const StyledCard = styled('div')(({ theme }) => ({
 const ProductCard: React.FC<Props> = ({ image, product, price, url, type }) => {
   return (
     <StyledCard>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', padding: 1 }}>
+      <Box sx={{ position: 'absolute'}}>
         <Chip
           size="small"
           label={type}
@@ -41,21 +42,21 @@ const ProductCard: React.FC<Props> = ({ image, product, price, url, type }) => {
         />
       </Box>
       <CardMedia
-        sx={{ height: 170 }}
+        sx={{ height: { xs: '150px', md: '250px' } }}
         image={image}
         title={product}
       />
-      <CardContent>
-        <Typography variant="body1">
+      <CardContent sx={{ padding: 0 }}>
+        <Typography variant="body2">
           {product}
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography variant="caption" sx={{ color: 'text.secondary' }}>
           R$ {price}
         </Typography>
       </CardContent>
       <CardActions>
         <StyledButtonGreen
-          sx={{ width: '100%' }}
+          sx={{ width: '100%', fontSize: '0.6rem' }}
           size="small"
           onClick={() => window.open(url, '_blank')}
         >
