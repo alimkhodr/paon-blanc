@@ -10,14 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.0",
-    "@mui/icons-material": "^5.16.4",
-    "@mui/material": "^5.16.4",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.0",
+    "@mui/material": "^6.4.0",
+    "@mui/system": "^6.4.0",
     "axios": "^1.7.2",
     "nodemailer": "^6.9.16",
     "paon-blanc": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-imask": "^7.6.1",
     "swiper": "^11.1.12"
   },
   "devDependencies": {

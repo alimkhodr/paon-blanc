@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Container, TextField, MenuItem, Select, InputLabel, FormControl, styled, Typography, Snackbar, Alert } from "@mui/material";
-import StyledButtonGreen from "../../../components/StyledButton/StyledButtonGreen";
+import StyledButtonGreen from "../../../components/StyledButton/styled-button-green";
 import theme from "../../../theme";
 import services from "../../sections/service-section/services-data";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Form = () => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [severity, setSeverity] = useState<"success" | "error">("success");
+    const telefoneRef = useRef<HTMLInputElement>(null);
 
     const StyledForm = styled("div")(({ theme }) => ({
         display: "flex",
@@ -32,35 +34,34 @@ const Form = () => {
     );
 
     const handleSubmit = async (event: React.FormEvent) => {
+        if (telefoneRef.current && telefoneRef.current.value.length < 14) {
+            setMessage("Telefone inválido. Por favor, insira um telefone válido.");
+            setSeverity("error");
+            setOpenSnackbar(true);
+            setLoading(false);
+            return;
+        }
+
         event.preventDefault();
         setLoading(true);
 
         const form = event.target as HTMLFormElement;
         const formData = new FormData(form);
 
-        const data = {
-            nome: formData.get("nome"),
-            numero: formData.get("numero"),
-            procedimento: formData.get("procedimento"),
-            mensagem: formData.get("mensagem"),
-        };
-
         try {
-            const response = await fetch(`${window.location.origin}/.netlify/functions/send-contact`, {
+            const response = await fetch("https://formspree.io/f/xqaarvay", {
                 method: "POST",
+                body: formData,
                 headers: {
-                    "Content-Type": "application/json",
+                    "Accept": "application/json",
                 },
-                body: JSON.stringify(data),
             });
 
-            const result = await response.text();
-
             if (response.ok) {
-                setMessage(result);
+                setMessage("Mensagem enviada com sucesso!");
                 setSeverity("success");
             } else {
-                setMessage(result || "Erro ao enviar a mensagem. Tente novamente.");
+                setMessage("Erro ao enviar a mensagem. Tente novamente.");
                 setSeverity("error");
             }
 
@@ -69,13 +70,31 @@ const Form = () => {
             setMessage("Erro ao enviar a mensagem. Tente novamente.");
             setSeverity("error");
             setOpenSnackbar(true);
-        } finally {
-            setLoading(false);
         }
+        setLoading(false);
     };
 
     const handleCloseSnackbar = () => {
         setOpenSnackbar(false);
+    };
+
+    const handleTelefoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value.replace(/\D/g, "");
+        let formattedValue = value;
+
+        if (value.length == 0) {
+            formattedValue = '';
+        } else if (value.length <= 2 && value.length > 0) {
+            formattedValue = `(${value}`;
+        } else if (value.length <= 6) {
+            formattedValue = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+        } else {
+            formattedValue = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7, 11)}`;
+        }
+
+        if (telefoneRef.current && telefoneRef.current.value !== formattedValue) {
+            telefoneRef.current.value = formattedValue;
+        }
     };
 
     return (
@@ -90,23 +109,28 @@ const Form = () => {
                 <StyledCard>
                     <form
                         name="contact-form"
-                        method="POST"
-                        data-netlify="true"
                         onSubmit={handleSubmit}
                         style={{ display: "flex", gap: 15, flexDirection: "column" }}
                     >
-                        <TextField label="Nome" variant="outlined" fullWidth name="nome" required />
                         <TextField
-                            label="Número"
+                            label="Nome"
                             variant="outlined"
                             fullWidth
-                            name="numero"
-                            type="number"
+                            name="Nome"
+                            required
+                        />
+                        <TextField
+                            label="Telefone"
+                            variant="outlined"
+                            fullWidth
+                            name="Telefone"
+                            inputRef={telefoneRef}
+                            onChange={handleTelefoneChange}
                             required
                         />
                         <FormControl fullWidth>
                             <InputLabel id="procedimento-label">Procedimento de Interesse</InputLabel>
-                            <Select labelId="procedimento-label" label="Procedimento de Interesse" name="procedimento">
+                            <Select labelId="procedimento-label" label="Procedimento de Interesse" name="Procedimento">
                                 {procedimentos.map((procedimento, index) => (
                                     <MenuItem key={index} value={procedimento}>
                                         {procedimento}
@@ -118,12 +142,19 @@ const Form = () => {
                             label="Mensagem"
                             variant="outlined"
                             fullWidth
-                            name="mensagem"
+                            name="Mensagem"
                             multiline
                             rows={4}
                         />
-                        <StyledButtonGreen variant="contained" color="primary" type="submit" fullWidth>
-                            {loading ? "Enviando..." : "Enviar"}
+                        <StyledButtonGreen
+                            variant="contained"
+                            color="primary"
+                            type="submit"
+                            fullWidth
+                            endIcon={loading ? <CircularProgress size={20} color="inherit" /> : null}
+                            disabled={loading}
+                        >
+                            Enviar
                         </StyledButtonGreen>
                     </form>
                 </StyledCard>
@@ -131,7 +162,7 @@ const Form = () => {
 
             <Snackbar
                 open={openSnackbar}
-                autoHideDuration={6000}
+                autoHideDuration={4000} 
                 onClose={handleCloseSnackbar}
                 anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >

@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Typography, Container, styled, Button, Box } from '@mui/material';
 import theme from '../../../theme';
 import { WhatsApp } from '@mui/icons-material';
-import StyledButtonGreen from '../../../components/StyledButton/StyledButtonGreen';
+import StyledButtonGreen from '../../../components/StyledButton/styled-button-green';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import services from './services-data';
 import ServiceModal from './service-modal';
