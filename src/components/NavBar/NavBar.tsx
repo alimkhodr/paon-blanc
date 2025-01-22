@@ -1,4 +1,4 @@
-import { AppBar, MenuItem, styled, Toolbar, IconButton, Drawer, List, ListItem, ListItemText, Typography, keyframes, useMediaQuery } from "@mui/material";
+import { AppBar, MenuItem, styled, Toolbar, IconButton, Drawer, List, ListItemText, Typography, keyframes, useMediaQuery, ListItem } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect } from "react";
 import theme from "../../theme";
@@ -159,8 +159,8 @@ const NavBar = () => {
                     {sections.map((section) => (
                         <ListItem
                             key={section.id}
-                            button
                             onClick={() => handleDrawerItemClick(section.id)}
+                            component="div"
                             sx={{
                                 backgroundColor: activeSection === section.id ? theme.palette.background.default : 'transparent',
                                 color: activeSection === section.id ? theme.palette.primary.main : 'inherit'
