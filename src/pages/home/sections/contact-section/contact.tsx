@@ -1,8 +1,9 @@
-import { Box, Button, Container, styled, Typography } from '@mui/material';
+import { Box, Container, styled, Typography } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import theme from '../../../../assets/theme';
+import ContactButton from '../../../../components/styled-button/contact-button';
 
 const Contact = () => {
     const StyledContact = styled('div')(({ theme }) => ({
@@ -25,22 +26,20 @@ const Contact = () => {
                     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', gap: { xs: 3, md: 6 } }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                             <Typography variant="h5" fontWeight="bold">Contato</Typography>
-                            <Button
-                                size="large"
-                                startIcon={<WhatsAppIcon sx={{ color: theme.palette.background.default, backgroundColor: theme.palette.primary.main, padding: "3px", borderRadius:1}} />}
-                                sx={{ padding: '0 5px' }}
-                                onClick={() => window.open('https://wa.me/5512996119002?text=Olá!', '_blank')}
-                            >
-                                (12) 99611-9002
-                            </Button>
-                            <Button
-                                size="large"
-                                startIcon={<MailOutlineIcon sx={{ color: theme.palette.background.default, backgroundColor: theme.palette.primary.main, padding: "3px", borderRadius:1}} />}
-                                sx={{ padding: '0 5px', textTransform: 'none' }}
-                                onClick={() => window.open('mailto:paonblancestetica@gmail.com', '_blank')}
-                            >
-                                paonblancestetica@gmail.com
-                            </Button>
+                            <ContactButton
+                                icon={WhatsAppIcon}
+                                color={theme.palette.background.default}
+                                backgroundColor={theme.palette.primary.main}
+                                link='https://wa.me/5512996119002?text=Olá!'
+                                text='(12) 99611-9002'
+                            />
+                            <ContactButton
+                                icon={MailOutlineIcon}
+                                color={theme.palette.background.default}
+                                backgroundColor={theme.palette.primary.main}
+                                link='mailto:paonblancestetica@gmail.com'
+                                text='paonblancestetica@gmail.com'
+                            />
                         </Box>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                             <Typography variant="h5" fontWeight="bold">Endereço</Typography>
@@ -56,14 +55,13 @@ const Contact = () => {
 
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                             <Typography variant="h5" fontWeight="bold">Redes Sociais</Typography>
-                            <Button
-                                size="large"
-                                startIcon={<InstagramIcon sx={{ color: theme.palette.background.default, backgroundColor: theme.palette.primary.main, padding: "3px", borderRadius:1}} />}
-                                sx={{ padding: '0 5px', textTransform: 'none' }}
-                                onClick={() => window.open('https://www.instagram.com/paonblancestetica', '_blank')}
-                            >
-                                @paonblancestetica
-                            </Button>
+                            <ContactButton
+                                icon={InstagramIcon}
+                                color={theme.palette.background.default}
+                                backgroundColor={theme.palette.primary.main}
+                                link='https://www.instagram.com/paonblancestetica'
+                                text='@paonblancestetica'
+                            />
                         </Box>
                     </Box>
                 </Box>

@@ -8,6 +8,7 @@ import Contact from "./sections/contact-section/contact";
 import Footer from "./sections/footer-section/footer";
 import FixedWhatsappButton from "../../components/fixed-whatsapp-button";
 
+
 const Home = () => {
     return (
         <>
