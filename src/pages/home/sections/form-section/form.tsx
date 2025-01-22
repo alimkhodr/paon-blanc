@@ -1,16 +1,15 @@
 import React, { useState, useRef } from "react";
-import { Container, TextField, MenuItem, Select, InputLabel, FormControl, styled, Typography, Snackbar, Alert } from "@mui/material";
+import { Container, TextField, MenuItem, Select, InputLabel, FormControl, styled, Typography } from "@mui/material";
 import theme from "../../../../assets/theme";
 import services from "../../../../assets/data/services-data";
 import CircularProgress from '@mui/material/CircularProgress';
 import StyledButtonGreen from "../../../../components/styled-button/styled-button-green";
+import { useSnackbar } from 'notistack';
 
 const Form = () => {
     const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState("");
-    const [openSnackbar, setOpenSnackbar] = useState(false);
-    const [severity, setSeverity] = useState<"success" | "error">("success");
     const telefoneRef = useRef<HTMLInputElement>(null);
+    const { enqueueSnackbar } = useSnackbar();
 
     const StyledForm = styled("div")(({ theme }) => ({
         display: "flex",
@@ -35,9 +34,7 @@ const Form = () => {
 
     const handleSubmit = async (event: React.FormEvent) => {
         if (telefoneRef.current && telefoneRef.current.value.length < 14) {
-            setMessage("Telefone inválido. Por favor, insira um telefone válido.");
-            setSeverity("error");
-            setOpenSnackbar(true);
+            enqueueSnackbar("Telefone inválido. Tente novamente.", { variant: "error" });
             setLoading(false);
             return;
         }
@@ -58,24 +55,14 @@ const Form = () => {
             });
 
             if (response.ok) {
-                setMessage("Mensagem enviada com sucesso!");
-                setSeverity("success");
+                enqueueSnackbar("Mensagem enviada com sucesso!", { variant: "success" });
             } else {
-                setMessage("Erro ao enviar a mensagem. Tente novamente.");
-                setSeverity("error");
+                enqueueSnackbar("Erro ao enviar a mensagem. Tente novamente.", { variant: "error" });
             }
-
-            setOpenSnackbar(true);
         } catch (error) {
-            setMessage("Erro ao enviar a mensagem. Tente novamente.");
-            setSeverity("error");
-            setOpenSnackbar(true);
+            enqueueSnackbar("Erro ao enviar a mensagem. Tente novamente.", { variant: "error" });
         }
         setLoading(false);
-    };
-
-    const handleCloseSnackbar = () => {
-        setOpenSnackbar(false);
     };
 
     const handleTelefoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -159,17 +146,6 @@ const Form = () => {
                     </form>
                 </StyledCard>
             </Container>
-
-            <Snackbar
-                open={openSnackbar}
-                autoHideDuration={4000} 
-                onClose={handleCloseSnackbar}
-                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-            >
-                <Alert onClose={handleCloseSnackbar} severity={severity} sx={{ width: "100%" }}>
-                    {message}
-                </Alert>
-            </Snackbar>
         </StyledForm>
     );
 };

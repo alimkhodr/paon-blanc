@@ -1,10 +1,11 @@
-import Home from "./pages/home/home"
+import Home from "./pages/home/home";
+import { SnackbarProvider } from "notistack";
 
 const App = () => {
   return (
-    <>
-      <Home/>
-    </>
-  )
-}
-export default App
+    <SnackbarProvider maxSnack={3}>
+      <Home />
+    </SnackbarProvider>
+  );
+};
+export default App;
