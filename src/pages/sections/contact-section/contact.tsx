@@ -27,7 +27,7 @@ const Contact = () => {
                             <Typography variant="h5" fontWeight="bold">Contato</Typography>
                             <Button
                                 size="large"
-                                startIcon={<WhatsAppIcon sx={{ color: theme.palette.background.paper, backgroundColor: theme.palette.primary.main, padding: "3px", borderRadius:1}} />}
+                                startIcon={<WhatsAppIcon sx={{ color: theme.palette.background.default, backgroundColor: theme.palette.primary.main, padding: "3px", borderRadius:1}} />}
                                 sx={{ padding: '0 5px' }}
                                 onClick={() => window.open('https://wa.me/5512996119002?text=Olá!', '_blank')}
                             >
@@ -35,7 +35,7 @@ const Contact = () => {
                             </Button>
                             <Button
                                 size="large"
-                                startIcon={<MailOutlineIcon sx={{ color: theme.palette.background.paper, backgroundColor: theme.palette.primary.main, padding: "3px", borderRadius:1}} />}
+                                startIcon={<MailOutlineIcon sx={{ color: theme.palette.background.default, backgroundColor: theme.palette.primary.main, padding: "3px", borderRadius:1}} />}
                                 sx={{ padding: '0 5px', textTransform: 'none' }}
                                 onClick={() => window.open('mailto:paonblancestetica@gmail.com', '_blank')}
                             >
@@ -58,7 +58,7 @@ const Contact = () => {
                             <Typography variant="h5" fontWeight="bold">Redes Sociais</Typography>
                             <Button
                                 size="large"
-                                startIcon={<InstagramIcon sx={{ color: theme.palette.background.paper, backgroundColor: theme.palette.primary.main, padding: "3px", borderRadius:1}} />}
+                                startIcon={<InstagramIcon sx={{ color: theme.palette.background.default, backgroundColor: theme.palette.primary.main, padding: "3px", borderRadius:1}} />}
                                 sx={{ padding: '0 5px', textTransform: 'none' }}
                                 onClick={() => window.open('https://www.instagram.com/paonblancestetica', '_blank')}
                             >
