@@ -2,8 +2,8 @@ import { AppBar, MenuItem, styled, Toolbar, IconButton, Drawer, List, ListItemTe
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect } from "react";
 import theme from "../../theme";
-import logo_deitada from "../../assets/logo/logo_deitada.svg";
-import logo_blanc from "../../assets/logo/logo_blanc.svg";
+import logo_deitada from "../../assets/logo/logo-deitada.svg";
+import logo_blanc from "../../assets/logo/logo-blanc.svg";
 
 const slideDown = keyframes`
   from {
