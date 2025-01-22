@@ -1,13 +1,13 @@
 import NavBar from "../../components/nav-bar/nav-bar"
-import Slide from "../sections/slide-section/slide"
-import Services from "../sections/service-section/services"
-import Gallery from "../sections/gallery-section/gallery-section"
-import Contact from "../sections/contact-section/contact"
-import Form from "../sections/form-section/form"
 import { Fab } from "@mui/material"
-import Products from "../sections/products-section/products"
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import Footer from "../sections/footer-section/footer"
+import Slide from "./sections/slide-section/slide";
+import Services from "./sections/service-section/services";
+import Products from "./sections/products-section/products";
+import Gallery from "./sections/gallery-section/gallery-section";
+import Form from "./sections/form-section/form";
+import Contact from "./sections/contact-section/contact";
+import Footer from "./sections/footer-section/footer";
 
 const Home = () => {
     return (

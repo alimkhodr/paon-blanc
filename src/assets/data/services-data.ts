@@ -1,9 +1,9 @@
-import Massagem from '../../../assets/images/massagem.jpg';
+import massagem from "./../images/massagem.jpg"
 
 const services = [
   {
     category: 'Cílios',
-    img: Massagem,
+    img: massagem,
     items: [
       { text: 'Cílios Completo', price: '180,00' },
       { text: 'Manutenção 50%', price: '99,00' },
@@ -13,7 +13,7 @@ const services = [
   },
   {
     category: 'Pigmentações',
-    img: Massagem,
+    img: massagem,
     items: [
       { text: 'Tinturinha Temporária', price: '29,00' },
       { text: 'Brow Lumination', price: '149,00' },
@@ -24,7 +24,7 @@ const services = [
   },
   {
     category: 'Estética Facial',
-    img: Massagem,
+    img: massagem,
     items: [
       { text: 'Limpeza de Pele', price: '129,00' },
       { text: 'Peeling Químico', price: '99,00' },
@@ -37,7 +37,7 @@ const services = [
   },
   {
     category: 'Estética Corporal',
-    img: Massagem,
+    img: massagem,
     items: [
       { text: 'Massagem Relaxante', price: '99,00' },
       { text: 'Drenagem Linfática', price: '89,00' },
@@ -48,7 +48,7 @@ const services = [
   },
   {
     category: 'Serviços',
-    img: Massagem,
+    img: massagem,
     items: [
       { text: 'Sobrancelhas', price: '40,00' },
       { text: 'Tinturinha', price: '29,00' },
@@ -57,7 +57,7 @@ const services = [
   },
   {
     category: 'Depilação Cera',
-    img: Massagem,
+    img: massagem,
     items: [
       { text: 'Buço', price: '21,00' },
       { text: 'Queixo/Pescoço', price: '21,00' },
@@ -80,7 +80,7 @@ const services = [
   },
   {
     category: 'Depilação Lazer',
-    img: Massagem,
+    img: massagem,
     items: [
       { text: 'FEMININO', price: '' },
       { text: 'Buço', price: '52,00' },

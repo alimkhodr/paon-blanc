@@ -1,4 +1,4 @@
-import massagem from '../../../assets/images/massagem.jpg';
+import massagem from "./../images/massagem.jpg"
 
 const slides = [
   {

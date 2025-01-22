@@ -5,10 +5,10 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import theme from '../../../theme'; // Supondo que você tenha um arquivo de tema
+import theme from '../../../../assets/theme';
 import slides from '../../../../assets/data/slides-data';
-import StyledButton from '../../../components/styled-button/styled-button-green';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import StyledButtonGreen from '../../../../components/styled-button/styled-button-green';
 
 const SwiperContainer = styled(Box)(({ theme }) => ({
   '.swiper-button-next:after': {
@@ -88,7 +88,7 @@ const Slide = () => {
                 dangerouslySetInnerHTML={{ __html: slide.text }}
                 sx={{ whiteSpace: 'nowrap' }}
               />
-              <StyledButton
+              <StyledButtonGreen
                 variant="contained"
                 startIcon={<WhatsAppIcon/>}
                 rel="noopener noreferrer"
@@ -96,7 +96,7 @@ const Slide = () => {
                 onClick={() => window.open(`https://wa.me/5512996119002?text=Ol%C3%A1!%0AGostaria%20de%20agendar%20uma%20sessão%20do%20*${slide.subtitle}*%20de%20*${slide.title}*.`, '_blank')}
               >
                 {slide.buttonText}
-              </StyledButton>
+              </StyledButtonGreen>
             </Box>
           </SwiperSlide>
         ))}
