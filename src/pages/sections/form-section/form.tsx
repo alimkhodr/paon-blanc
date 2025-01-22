@@ -129,7 +129,7 @@ const Form = () => {
                             required
                         />
                         <FormControl fullWidth>
-                            <InputLabel id="procedimento-label">Procedimento de Interesse</InputLabel>
+                            <InputLabel id="procedimento-label">Procedimento</InputLabel>
                             <Select labelId="procedimento-label" label="Procedimento de Interesse" name="Procedimento">
                                 {procedimentos.map((procedimento, index) => (
                                     <MenuItem key={index} value={procedimento}>
