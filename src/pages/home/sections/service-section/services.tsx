@@ -8,7 +8,7 @@ import theme from '../../../theme';
 import { WhatsApp } from '@mui/icons-material';
 import StyledButtonGreen from '../../../components/styled-button/styled-button-green';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import services from './services-data';
+import services from '../../../../assets/data/services-data';
 import ServiceModal from './service-modal';
 
 // Estilos fora do componente para evitar recriação desnecessária

@@ -2,7 +2,7 @@ import { Box, Container, ImageList, ImageListItem, styled, Typography } from '@m
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import images from './gallery-data';
+import images from '../../../../assets/data/gallery-data';
 
 const Gallery = () => {
   const StyledGallery = styled('div')(({ theme }) => ({

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Container, TextField, MenuItem, Select, InputLabel, FormControl, styled, Typography, Snackbar, Alert } from "@mui/material";
 import theme from "../../../../theme";
-import services from "../../sections/service-section/services-data";
+import services from "../../../../assets/data/services-data";
 import CircularProgress from '@mui/material/CircularProgress';
 import StyledButtonGreen from "../../../../components/styled-button/styled-button-green";
 

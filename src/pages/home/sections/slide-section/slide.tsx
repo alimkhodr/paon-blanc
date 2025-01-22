@@ -6,7 +6,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import theme from '../../../theme'; // Supondo que você tenha um arquivo de tema
-import slides from './slides-data';
+import slides from '../../../../assets/data/slides-data';
 import StyledButton from '../../../components/styled-button/styled-button-green';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
