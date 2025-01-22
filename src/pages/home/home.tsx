@@ -1,4 +1,4 @@
-import NavBar from "../../components/NavBar/NavBar"
+import NavBar from "../../components/nav-bar/nav-bar"
 import Slide from "../sections/slide-section/slide"
 import Services from "../sections/service-section/services"
 import Gallery from "../sections/gallery-section/gallery-section"
