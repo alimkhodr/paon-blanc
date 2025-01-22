@@ -2,7 +2,7 @@ import { Box, Button, Container, styled, Typography } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import theme from '../../../../theme';
+import theme from '../../../../assets/theme';
 
 const Contact = () => {
     const StyledContact = styled('div')(({ theme }) => ({
