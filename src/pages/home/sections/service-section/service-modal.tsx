@@ -4,12 +4,12 @@ import CloseIcon from '@mui/icons-material/Close';
 interface Props {
   open: boolean;
   handleClose: () => void;
-  category: string;
+  title: string;
   item: string;
   keepMounted?: boolean;
 }
 
-const ServiceModal: React.FC<Props> = ({ open, handleClose, category, item, keepMounted }) => {
+const ServiceModal: React.FC<Props> = ({ open, handleClose, title, item, keepMounted }) => {
   return (
     <Modal
       open={open}
@@ -43,7 +43,7 @@ const ServiceModal: React.FC<Props> = ({ open, handleClose, category, item, keep
           <CloseIcon />
         </IconButton>
         <Typography id="modal-title" variant="h4" component="h2">
-          {category}
+          {title}
         </Typography>
 
         <Typography id="modal-description" sx={{ mt: 1 }}>

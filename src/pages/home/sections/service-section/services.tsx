@@ -45,15 +45,25 @@ const SwiperContainer = styled(Box)(() => ({
 const Service = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<{
-    category: string;
-    items: { text: string; price: string }[];
+    title: string;
+    img: string;
+    items: {
+      category: string;
+      service: { text: string; price: string }[];
+    }[];
   } | null>(null);
-
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const memoizedServices = useMemo(() => services, []);
 
-  const handleOpenModal = (service: { category: string; items: { text: string; price: string }[] }) => {
+  const handleOpenModal = (service: {
+    title: string;
+    img: string;
+    items: {
+      category: string;
+      service: { text: string; price: string }[];
+    }[];
+  }) => {
     setSelectedService(service);
     setModalOpen(true);
   };
@@ -110,7 +120,7 @@ const Service = () => {
                 <StyledCard>
                   <img
                     src={service.img}
-                    alt={service.category}
+                    alt={service.title}
                     style={{ width: '100%', borderRadius: 5 }}
                   />
                   <Typography
@@ -118,24 +128,37 @@ const Service = () => {
                     fontWeight="bold"
                     color={theme.palette.primary.main}
                   >
-                    {service.category}
+                    {service.title}
                   </Typography>
-                  {service.items.slice(0, 4).map((item, idx) => (
-                    <Typography key={idx} variant="body2" fontWeight={(item.text === "FEMININO" || item.text === "MASCULINO") ? 'bold' : 'normal'}>
-                      {item.text} {(item.text === "FEMININO" || item.text === "MASCULINO") ? '' : "- R$"} {item.price}
-                    </Typography>
+                  {service.items.slice(0, 1).map((item, idx) => (
+                    <div key={idx} style={{ marginBottom: '8px' }}>
+                      {item.category && (
+                        <Typography
+                          variant="subtitle1"
+                          fontWeight="bold"
+                          style={{ marginBottom: '4px' }}
+                        >
+                          {item.category}
+                        </Typography>
+                      )}
+                      {item.service.slice(0, 4).map((svc, svcIdx) => (
+                        <Typography key={svcIdx} variant="body2" fontWeight="normal">
+                          {svc.text}: R$ {svc.price}
+                        </Typography>
+                      ))}
+                      {item.service.length > 4 && (
+                        <Button
+                          sx={{ textTransform: 'none', padding: '3px 0px' }}
+                          onClick={() => handleOpenModal(service)}
+                        >
+                          VER MAIS
+                        </Button>
+                      )}
+                    </div>
                   ))}
-                  {service.items.length > 3 && (
-                    <Button
-                      sx={{ textTransform: 'none', padding: '3px 0px' }}
-                      onClick={() => handleOpenModal(service)}
-                    >
-                      VER MAIS
-                    </Button>
-                  )}
                   <StyledButtonGreen
                     startIcon={<WhatsApp />}
-                    onClick={() => window.open(`https://wa.me/5512996119002?text=Ol%C3%A1!%0AGostaria%20de%20agendar%20uma%20sessão%20de%20*${service.category}*.`, '_blank')}
+                    onClick={() => window.open(`https://wa.me/5512996119002?text=Ol%C3%A1!%0AGostaria%20de%20agendar%20uma%20sessão%20de%20*${service.title}*.`, '_blank')}
                   >
                     Agendar
                   </StyledButtonGreen>
@@ -151,10 +174,15 @@ const Service = () => {
           open={modalOpen}
           handleClose={handleCloseModal}
           keepMounted
-          category={selectedService.category}
+          title={selectedService.title}
           item={selectedService.items
-            .map((item) => `${item.text} ${(item.text === "FEMININO" || item.text === "MASCULINO") ? "" : `- R$ ${item.price}`}`)
-            .join('\n')}
+            .map(
+              (item) =>
+                `${item.category}:\n${item.service
+                  .map((svc) => `${svc.text} - R$ ${svc.price}`)
+                  .join('\n')}`
+            )
+            .join('\n\n')}
         />
       )}
     </StyledServices>

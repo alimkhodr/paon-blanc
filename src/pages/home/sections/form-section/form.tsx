@@ -30,7 +30,9 @@ const Form = () => {
     }));
 
     const procedimentos = services.flatMap((service) =>
-        service.items.map((item) => `${service.category} - ${item.text}`)
+        service.items.flatMap((item) =>
+            item.service.map((svc) => `${service.title} - ${svc.text}`)
+        )
     );
 
     const handleSubmit = async (event: React.FormEvent) => {
@@ -100,7 +102,7 @@ const Form = () => {
                         name="contact-form"
                         onSubmit={handleSubmit}
                         style={{ display: "flex", gap: 15, flexDirection: "column" }}
-                        action="javascript:void(0)" 
+                        action="javascript:void(0)"
                     >
                         <TextField
                             label="Nome"
