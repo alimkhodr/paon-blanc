@@ -28,7 +28,6 @@ const StyledCard = styled('div')(() => ({
   backgroundColor: theme.palette.background.default,
   alignItems: 'flex-start',
   width: '100%',
-  maxWidth: 280,
 }));
 
 const SwiperContainer = styled(Box)(() => ({
@@ -88,7 +87,7 @@ const Service = () => {
             onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
             initialSlide={currentSlide}
             modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={16}
+            spaceBetween={25}
             slidesPerView={1}
             navigation
             autoplay={{ delay: 8000 }}

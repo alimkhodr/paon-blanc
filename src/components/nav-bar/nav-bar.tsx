@@ -1,10 +1,8 @@
-import { AppBar, MenuItem, styled, Toolbar, IconButton, Drawer, List, ListItemText, Typography, keyframes, useMediaQuery, ListItem } from "@mui/material";
+import { AppBar, MenuItem, styled, Toolbar, IconButton, Drawer, List, ListItemText, Typography, keyframes, ListItem } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect } from "react";
 import theme from "../../assets/theme";
-import logo_deitada from "../../assets/images/logos/logo-deitada.svg";
-import logo_blanc from "../../assets/images/logos/logo-blanc.svg";
-
+import logo_linear from "../../assets/images/logos/logo-linear.svg";
 const slideDown = keyframes`
   from {
     transform: translateY(-100%);
@@ -17,8 +15,7 @@ const slideDown = keyframes`
 const NavBar = () => {
     const [open, setOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('slide');
-    const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-
+    
     const sections = [
         { id: 'slide', label: 'Home' },
         { id: 'services', label: 'Procedimentos' },
@@ -98,11 +95,11 @@ const NavBar = () => {
                     animation: `${slideDown} 0.5s ease-out`,
                 }}
             >
-                <StyledToolbar sx={{ borderRadius: { xs: 0, lg: 50 } }}>
+                <StyledToolbar sx={{ borderRadius: { xs: 0, lg: 20 }, padding: { xs: "30px 30px 30px 10px", lg: 7 }}}>
                     <img
-                        src={isDesktop ? logo_deitada : logo_blanc }
+                        src={logo_linear}
                         alt="Logo"
-                        style={{ height: "60px", margin: '5px 30px 5px 30px', cursor: 'pointer' }}
+                        style={{ height: "65px", margin: '20px 20px 30px 15px', cursor: 'pointer' }}
                         onClick={() => handleScrollToSection('slide')}
                     />
                     <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%', alignItems: 'center' }}>
@@ -122,7 +119,7 @@ const NavBar = () => {
                                             backgroundColor: theme.palette.background.default,
                                             color: theme.palette.secondary.main,
                                         },
-                                        display: { xs: 'none', lg: 'block' } // Atualizado para usar lg
+                                        display: { xs: 'none', lg: 'block' }
                                     }}
                                     component="a"
                                     onClick={() => handleScrollToSection(section.id)}
@@ -142,7 +139,7 @@ const NavBar = () => {
                         edge="end"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ display: { xs: 'flex', lg: 'none' } }} // Atualizado para usar lg
+                        sx={{ display: { xs: 'flex', lg: 'none' } }}
                         onClick={handleDrawerToggle}
                     >
                         <MenuIcon />
@@ -153,7 +150,7 @@ const NavBar = () => {
                 anchor="right"
                 open={open}
                 onClose={handleDrawerToggle}
-                sx={{ display: { xs: 'block', lg: 'none' }, '& .MuiDrawer-default': { backgroundColor: theme.palette.background.default, color: theme.palette.primary.main } }}
+                sx={{ display: { xs: 'block', lg: 'none' }}}
             >
                 <List>
                     {sections.map((section) => (

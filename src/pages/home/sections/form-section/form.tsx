@@ -25,7 +25,8 @@ const Form = () => {
         backgroundColor: theme.palette.background.default,
         alignItems: "center",
         margin: "20px 0",
-        width: "80%",
+        width: "100%",
+        maxWidth: 700,
     }));
 
     const procedimentos = services.flatMap((service) =>

@@ -1,14 +1,19 @@
 import { Box, Container, styled, Typography } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import theme from '../../../../assets/theme';
 import ContactButton from '../../../../components/styled-button/contact-button';
+// import { ListItemText } from '@mui/material';
 
 const Contact = () => {
     const StyledContact = styled('div')(({ theme }) => ({
         padding: '40px 0px',
-        background: `linear-gradient(to bottom, ${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 40%, ${theme.palette.background.paper} 40%, ${theme.palette.background.paper} 100%)`,
+        background: `linear-gradient(to bottom, ${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 50%, ${theme.palette.background.paper} 50%, ${theme.palette.background.paper} 100%)`,
+        [theme.breakpoints.down('md')]: {
+            background: `linear-gradient(to bottom, ${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 35%, ${theme.palette.background.paper} 35%, ${theme.palette.background.paper} 100%)`,
+        },
     }));
 
     return (
@@ -23,7 +28,7 @@ const Contact = () => {
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                     />
-                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', gap: { xs: 3, md: 6 } }}>
+                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', gap: { xs: 3, md: 3 } }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                             <Typography variant="h5" fontWeight="bold">Contato</Typography>
                             <ContactButton
@@ -53,6 +58,14 @@ const Contact = () => {
                             </Typography>
                         </Box>
 
+                        {/* <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                            <Typography variant="h5" fontWeight="bold">Horário de funcionamento</Typography>
+                            <ListItemText sx={{ mt: 0, mb: 0 }}>
+                                <ListItemText>Segunda a Sexta: 9h às 19h</ListItemText>
+                                <ListItemText>Sábado: 9h às 13h</ListItemText>
+                            </ListItemText>
+                        </Box> */}
+
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                             <Typography variant="h5" fontWeight="bold">Redes Sociais</Typography>
                             <ContactButton
@@ -61,6 +74,13 @@ const Contact = () => {
                                 backgroundColor={theme.palette.primary.main}
                                 link='https://www.instagram.com/paonblancestetica'
                                 text='@paonblancestetica'
+                            />
+                            <ContactButton
+                                icon={FacebookIcon}
+                                color={theme.palette.background.default}
+                                backgroundColor={theme.palette.primary.main}
+                                link='https://www.facebook.com/biancacanutoestetica'
+                                text='Bianca Canuto Estética'
                             />
                         </Box>
                     </Box>
