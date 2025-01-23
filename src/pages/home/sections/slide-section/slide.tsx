@@ -58,7 +58,7 @@ const Slide = () => {
                 position: 'absolute',
                 top: '50%',
                 left: '50%',
-                transform: { xs: 'translate(-50%, -50%)', md: 'translate(-100%, -50%)' },
+                transform: { xs: 'translate(-50%, -50%)', md: 'translate(-120%, -50%)' },
                 alignItems: 'flex-start',
                 textAlign: 'left',
                 padding: 2,
@@ -83,7 +83,7 @@ const Slide = () => {
                 </Typography>
               </Box>
               <Typography
-                variant="body1"
+                variant="h6"
                 component="div"
                 dangerouslySetInnerHTML={{ __html: slide.text }}
                 sx={{ whiteSpace: 'nowrap' }}
