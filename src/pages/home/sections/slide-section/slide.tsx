@@ -9,17 +9,24 @@ import theme from '../../../../assets/theme';
 import slides from '../../../../assets/data/slides-data';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import StyledButtonGreen from '../../../../components/styled-button/styled-button-green';
-
 const SwiperContainer = styled(Box)(({ theme }) => ({
   '.swiper-button-next:after': {
     content: '"next"',
     color: theme.palette.primary.main,
     textShadow: 'none',
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
   },
   '.swiper-button-prev:after': {
     content: '"prev"',
     color: theme.palette.primary.main,
     textShadow: 'none',
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
   },
   '.swiper-pagination-bullet': {
     background: theme.palette.primary.main,
@@ -47,7 +54,7 @@ const Slide = () => {
           <SwiperSlide key={index}>
             <img
               src={slide.img}
-              alt="Background Image"
+              alt={slide.title}
               loading="lazy"
               style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0, zIndex: -1 }}
             />
@@ -56,9 +63,8 @@ const Slide = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: { xs: 'translate(-50%, -50%)', md: 'translate(-120%, -50%)' },
+                top: { xs: '40%', sm: '40%' },
+                left: { xs: '5%', sm: '5%' },
                 alignItems: 'flex-start',
                 textAlign: 'left',
                 padding: 2,
@@ -68,15 +74,15 @@ const Slide = () => {
               }}
             >
               <Box>
-                <Typography 
-                  variant="h4" 
+                <Typography
+                  variant="h4"
                   fontWeight="bold"
                   sx={{ whiteSpace: 'nowrap' }}
                 >
                   {slide.title}
                 </Typography>
-                <Typography 
-                  variant="h6" 
+                <Typography
+                  variant="h6"
                   sx={{ whiteSpace: 'nowrap' }}
                 >
                   {slide.subtitle}
@@ -90,9 +96,9 @@ const Slide = () => {
               />
               <StyledButtonGreen
                 variant="contained"
-                startIcon={<WhatsAppIcon/>}
+                startIcon={<WhatsAppIcon />}
                 rel="noopener noreferrer"
-                sx={{ mt: 1}}
+                sx={{ mt: 1 }}
                 onClick={() => window.open(`https://wa.me/5512996119002?text=Ol%C3%A1!%0AGostaria%20de%20agendar%20uma%20sessão%20do%20*${slide.subtitle}*%20de%20*${slide.title}*.`, '_blank')}
               >
                 {slide.buttonText}

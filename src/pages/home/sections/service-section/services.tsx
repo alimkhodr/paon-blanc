@@ -28,6 +28,7 @@ const StyledCard = styled('div')(() => ({
   backgroundColor: theme.palette.background.default,
   alignItems: 'flex-start',
   width: '100%',
+  maxWidth: '300px',
 }));
 
 const SwiperContainer = styled(Box)(() => ({
@@ -107,10 +108,10 @@ const Service = () => {
               400: {
                 slidesPerView: 1,
               },
-              500: {
-                slidesPerView: 1,
+              700: {
+                slidesPerView: 2,
               },
-              800: {
+              1000: {
                 slidesPerView: 3,
               },
             }}
@@ -121,7 +122,7 @@ const Service = () => {
                   <img
                     src={service.img}
                     alt={service.title}
-                    style={{ width: '100%', borderRadius: 5 }}
+                    style={{ width: '100%', borderRadius: 5, height: '180px', objectFit: 'cover' }}
                   />
                   <Typography
                     variant="h5"
@@ -132,15 +133,6 @@ const Service = () => {
                   </Typography>
                   {service.items.slice(0, 1).map((item, idx) => (
                     <div key={idx} style={{ marginBottom: '8px' }}>
-                      {item.category && (
-                        <Typography
-                          variant="subtitle1"
-                          fontWeight="bold"
-                          style={{ marginBottom: '4px' }}
-                        >
-                          {item.category}
-                        </Typography>
-                      )}
                       {item.service.slice(0, 4).map((svc, svcIdx) => (
                         <Typography
                           key={svcIdx}

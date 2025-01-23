@@ -1,9 +1,14 @@
-import massagem from "./../images/massagem.jpg"
+import massagem from "./../images/massagem-relaxante.jpg"
+import boca from "./../images/boca.jpg"
+import limpezaDePele from "./../images/limpeza-de-pele.jpg"
+import ciclios from "./../images/cilios.jpg"
+import depilacaoLazer from "./../images/depilacao-lazer.jpg"
+import sobrancelha from "./../images/sobrancelha.jpg"
 
 const services = [
   {
     title: 'Sobrancelhas',
-    img: massagem,
+    img: sobrancelha,
     items: [
       {
         category: '',
@@ -19,7 +24,7 @@ const services = [
   },
   {
     title: 'Cílios',
-    img: massagem,
+    img: ciclios,
     items: [
       {
         category: '',
@@ -35,7 +40,7 @@ const services = [
   },
   {
     title: 'Boca',
-    img: massagem,
+    img: boca,
     items: [
       {
         category: '',
@@ -49,7 +54,7 @@ const services = [
   },
   {
     title: 'Estetica Facial',
-    img: massagem,
+    img: limpezaDePele,
     items: [
       {
         category: '',
@@ -83,7 +88,7 @@ const services = [
   },
   {
     title: 'Depilação Lazer',
-    img: massagem,
+    img: depilacaoLazer,
     items: [
       {
         category: 'FEMININA',
