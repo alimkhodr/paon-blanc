@@ -142,18 +142,26 @@ const Service = () => {
                         </Typography>
                       )}
                       {item.service.slice(0, 4).map((svc, svcIdx) => (
-                        <Typography key={svcIdx} variant="body2" fontWeight="normal">
-                          {svc.text}: R$ {svc.price}
+                        <Typography
+                          key={svcIdx}
+                          variant="body2"
+                          fontWeight="normal"
+                          sx={{
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            maxWidth: '290px',
+                          }}
+                        >
+                          {svc.text} - R$ {svc.price}
                         </Typography>
                       ))}
-                      {item.service.length > 4 && (
-                        <Button
-                          sx={{ textTransform: 'none', padding: '3px 0px' }}
-                          onClick={() => handleOpenModal(service)}
-                        >
-                          VER MAIS
-                        </Button>
-                      )}
+                      <Button
+                        sx={{ textTransform: 'none', padding: '3px 0px' }}
+                        onClick={() => handleOpenModal(service)}
+                      >
+                        VER MAIS
+                      </Button>
                     </div>
                   ))}
                   <StyledButtonGreen
@@ -178,11 +186,9 @@ const Service = () => {
           item={selectedService.items
             .map(
               (item) =>
-                `${item.category}:\n${item.service
-                  .map((svc) => `${svc.text} - R$ ${svc.price}`)
-                  .join('\n')}`
-            )
-            .join('\n\n')}
+                `${item.category == '' ? '' : `${item.category}\n`}
+                ${item.service.map((svc) => `${svc.text} - R$ ${svc.price}`).join('\n')}`
+              ).join('\n\n')}
         />
       )}
     </StyledServices>

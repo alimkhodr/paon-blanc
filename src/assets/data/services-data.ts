@@ -76,7 +76,7 @@ const services = [
           { text: 'Massagem relaxante 50’', price: '129,00' },
           { text: 'Drenagem linfática 50’', price: '129,00' },
           { text: 'Gomage com massagem relaxante 30’', price: '189,00' },
-          { text: 'Banho de lua com gomage e massagem relaxante 30’', price: '239,00' },
+          { text: 'Banho de lua & Gomage com massagem relaxante 30’', price: '239,00' },
         ],
       }
     ]
