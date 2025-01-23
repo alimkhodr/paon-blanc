@@ -33,13 +33,14 @@ const Form = () => {
     );
 
     const handleSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
+
         if (telefoneRef.current && telefoneRef.current.value.length < 14) {
             enqueueSnackbar("Telefone inválido. Tente novamente.", { variant: "error" });
             setLoading(false);
             return;
         }
 
-        event.preventDefault();
         setLoading(true);
 
         const form = event.target as HTMLFormElement;

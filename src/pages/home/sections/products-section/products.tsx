@@ -3,7 +3,7 @@ import { Container, styled, Typography, Grid, Pagination, Link, useMediaQuery, u
 import ProductCard from './products-card';
 import axios from 'axios';
 
-interface Product {
+interface Props {
   id: string;
   name: string;
   price: number;
@@ -16,12 +16,12 @@ interface Product {
 }
 
 const Products = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Props[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-  const productsPerPage = isDesktop ? 8 : 4;
+  const productsPerPage = isDesktop ? 8 : 6;
 
   const topRef = useRef<HTMLDivElement | null>(null);
 
@@ -45,7 +45,7 @@ const Products = () => {
           .map(response => response.data.Data.products)
           .flat();
 
-        const uniqueProductsMap = new Map<string, Product>();
+        const uniqueProductsMap = new Map<string, Props>();
         allProducts.forEach(product => {
           if (!uniqueProductsMap.has(product.id)) {
             uniqueProductsMap.set(product.id, product);

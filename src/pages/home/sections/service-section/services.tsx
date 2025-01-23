@@ -11,7 +11,6 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import services from '../../../../assets/data/services-data';
 import ServiceModal from './service-modal';
 
-// Estilos fora do componente para evitar recriação desnecessária
 const StyledServices = styled('div')(({ theme }) => ({
   padding: '40px 0px',
   backgroundColor: theme.palette.primary.main,
