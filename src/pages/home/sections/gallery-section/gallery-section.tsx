@@ -3,6 +3,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import images from '../../../../assets/data/gallery-data';
+import { useMediaQuery } from '@mui/system';
+import theme from '../../../../assets/theme';
 
 const Gallery = () => {
   const StyledGallery = styled('div')(({ theme }) => ({
@@ -10,6 +12,8 @@ const Gallery = () => {
     backgroundColor: theme.palette.primary.main,
   }));
 
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const galleryCols = isDesktop ? 3 : 2;
 
   return (
     <StyledGallery>
@@ -31,7 +35,7 @@ const Gallery = () => {
         </Typography>
 
         <Box sx={{ mt: 4 }}>
-          <ImageList cols={3} gap={15}>
+          <ImageList cols={galleryCols} gap={15}>
             {images.map((item) => (
               <ImageListItem key={item.img}>
                 <img
