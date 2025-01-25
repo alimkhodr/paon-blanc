@@ -16,17 +16,30 @@ const Contact = () => {
         },
     }));
 
+    // Map initialization function
+    const initializeMap = () => {
+        const iframe = document.getElementById('google-map-iframe') as HTMLIFrameElement;
+        if (iframe) {
+            iframe.onload = () => {
+                // Trigger resize event after the iframe has fully loaded
+                google.maps.event.trigger(iframe.contentWindow, 'resize');
+            };
+        }
+    };
+
     return (
         <StyledContact>
             <Container>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
                     <iframe
+                        id="google-map-iframe"
                         width="100%"
                         height="300"
                         style={{ border: 0, borderRadius: 5 }}
                         referrerPolicy="no-referrer-when-downgrade"
-                        src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_API_KEY}&q=Edificio+Infinity+Tower%2C+R.+dos+Piquiroes%2C+40+-+Sala+803+-+Jardim+Aquarius%2C+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP%2C+12246-020`}>
-                    </iframe>
+                        src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_API_KEY}&q=Edificio+Infinity+Tower%2C+R.+dos+Piquiroes%2C+40+-+Sala+803+-+Jardim+Aquarius%2C+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP%2C+12246-020`}
+                        onLoad={initializeMap}
+                    />
                     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', gap: { xs: 3, md: 3 } }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                             <Typography variant="h5" fontWeight="bold">Contato</Typography>
