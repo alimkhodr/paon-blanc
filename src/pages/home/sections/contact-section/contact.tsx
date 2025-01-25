@@ -7,10 +7,7 @@ import theme from '../../../../assets/theme';
 import ContactButton from '../../../../components/styled-button/contact-button';
 // import { ListItemText } from '@mui/material';
 
-const Contact = () => {
-    console.log('VITE_API_KEY', import.meta.env.VITE_API_KEY);
-    console.log('VITE_API_FORM', import.meta.env.VITE_API_FORM);
-   
+const Contact = () => { 
     const StyledContact = styled('div')(({ theme }) => ({
         padding: '40px 0px',
         background: `linear-gradient(to bottom, ${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 50%, ${theme.palette.background.paper} 50%, ${theme.palette.background.paper} 100%)`,
@@ -24,7 +21,7 @@ const Contact = () => {
             <Container>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
                     <iframe
-                        src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229.17333992172425!2d-45.908833018473416!3d-23.21492590240116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cc35ab7fcf9253%3A0x5b698e4f060e2154!2sPromovere%20Vita%20-%20Coworking!5e0!3m2!1spt-BR!2sbr!4v1736117182280!5m2!1spt-BR!2sbr&key=${import.meta.env.API_KEY}`}
+                        src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229.17333992172425!2d-45.908833018473416!3d-23.21492590240116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cc35ab7fcf9253%3A0x5b698e4f060e2154!2sPromovere%20Vita%20-%20Coworking!5e0!3m2!1spt-BR!2sbr!4v1736117182280!5m2!1spt-BR!2sbr&key=${import.meta.env.VITE_API_KEY}`}
                         width="100%"
                         height="300"
                         style={{ border: 0, borderRadius: 5 }}
