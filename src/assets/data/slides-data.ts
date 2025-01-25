@@ -1,6 +1,6 @@
-import massagem from "./../images/massagem.jpg"
-import ciliosBackground from "./../images/cilios-background.jpg"
-import limpezaDePeleBackground from "./../images/limpeza-pele-background.jpg"
+import massagem from "./../images/massagem.webp"
+import ciliosBackground from "./../images/cilios-background.webp"
+import limpezaDePeleBackground from "./../images/limpeza-pele-background.webp"
 
 const slides = [
   {

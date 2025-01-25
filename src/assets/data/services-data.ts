@@ -1,9 +1,9 @@
-import massagem from "./../images/massagem-relaxante.jpg"
-import boca from "./../images/boca.jpg"
-import limpezaDePele from "./../images/limpeza-de-pele.jpg"
-import ciclios from "./../images/cilios.jpg"
-import depilacaoLazer from "./../images/depilacao-lazer.jpg"
-import sobrancelha from "./../images/sobrancelha.jpg"
+import massagem from "./../images/massagem-relaxante.webp"
+import boca from "./../images/boca.webp"
+import limpezaDePele from "./../images/limpeza-de-pele.webp"
+import ciclios from "./../images/cilios.webp"
+import depilacaoLazer from "./../images/depilacao-lazer.webp"
+import sobrancelha from "./../images/sobrancelha.webp"
 
 const services = [
   {
