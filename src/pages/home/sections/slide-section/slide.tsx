@@ -9,29 +9,33 @@ import theme from '../../../../assets/theme';
 import slides from '../../../../assets/data/slides-data';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import StyledButtonGreen from '../../../../components/styled-button/styled-button-green';
+
 const SwiperContainer = styled(Box)(({ theme }) => ({
   '.swiper-button-next:after': {
-    content: '"next"',
-    color: theme.palette.primary.main,
-    textShadow: 'none',
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
+      color: theme.palette.primary.main,
+      content: '"next"',
     },
   },
   '.swiper-button-prev:after': {
-    content: '"prev"',
-    color: theme.palette.primary.main,
-    textShadow: 'none',
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
+      color: theme.palette.primary.main,
+      content: '"prev"',
     },
   },
   '.swiper-pagination-bullet': {
     background: theme.palette.primary.main,
   },
 }));
+
+const handleWhatsAppClick = (title: string, subtitle: string) => {
+  const message = `Ol%C3%A1!%0AGostaria%20de%20agendar%20uma%20sess%C3%A3o%20do%20*${subtitle}*%20de%20*${title}*.`;
+  window.open(`https://wa.me/5512996119002?text=${message}`, '_blank', 'noopener,noreferrer');
+};
 
 const Slide = () => {
   return (
@@ -71,19 +75,20 @@ const Slide = () => {
                 borderRadius: 2,
                 gap: 1,
                 backgroundColor: theme.palette.background.paper,
+                boxShadow: theme.shadows[2],
               }}
             >
               <Box>
                 <Typography
                   variant="h4"
                   fontWeight="bold"
-                  sx={{ whiteSpace: 'nowrap' }}
+                  sx={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}
                 >
                   {slide.title}
                 </Typography>
                 <Typography
                   variant="h6"
-                  sx={{ whiteSpace: 'nowrap' }}
+                  sx={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}
                 >
                   {slide.subtitle}
                 </Typography>
@@ -92,14 +97,17 @@ const Slide = () => {
                 variant="h6"
                 component="div"
                 dangerouslySetInnerHTML={{ __html: slide.text }}
-                sx={{ whiteSpace: 'nowrap' }}
+                sx={{
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis',
+                  overflow: 'hidden',
+                }}
               />
               <StyledButtonGreen
                 variant="contained"
                 startIcon={<WhatsAppIcon />}
-                rel="noopener noreferrer"
                 sx={{ mt: 1 }}
-                onClick={() => window.open(`https://wa.me/5512996119002?text=Ol%C3%A1!%0AGostaria%20de%20agendar%20uma%20sessão%20do%20*${slide.subtitle}*%20de%20*${slide.title}*.`, '_blank')}
+                onClick={() => handleWhatsAppClick(slide.title, slide.subtitle)}
               >
                 {slide.buttonText}
               </StyledButtonGreen>
