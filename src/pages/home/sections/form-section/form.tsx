@@ -50,7 +50,7 @@ const Form = () => {
         const formData = new FormData(form);
 
         try {
-            const response = await fetch("https://formspree.io/f/xqaarvay", {
+            const response = await fetch(import.meta.env.API_FORM as string, {
                 method: "POST",
                 body: formData,
                 headers: {
