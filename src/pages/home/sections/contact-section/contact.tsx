@@ -16,16 +16,14 @@ const Contact = () => {
         },
     }));
 
-    // Map initialization function
     const initializeMap = () => {
         const iframe = document.getElementById('google-map-iframe') as HTMLIFrameElement;
-        if (iframe) {
+        if (iframe && iframe.contentWindow) {
             iframe.onload = () => {
-                // Trigger resize event after the iframe has fully loaded
-                google.maps.event.trigger(iframe.contentWindow, 'resize');
+                google.maps.event.trigger(iframe.contentWindow as Window, 'resize');
             };
         }
-    };
+    };    
 
     return (
         <StyledContact>
