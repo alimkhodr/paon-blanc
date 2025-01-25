@@ -122,7 +122,12 @@ const Form = () => {
                         />
                         <FormControl fullWidth>
                             <InputLabel id="procedimento-label">Procedimento</InputLabel>
-                            <Select labelId="procedimento-label" label="Procedimento de Interesse" name="Procedimento">
+                            <Select
+                                labelId="procedimento-label"
+                                label="Procedimento de Interesse"
+                                name="Procedimento"
+                                autoComplete="off"
+                            >
                                 {procedimentos.map((procedimento, index) => (
                                     <MenuItem key={index} value={procedimento}>
                                         {procedimento}
