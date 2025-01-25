@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -55,7 +55,7 @@ const Service = () => {
   } | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const memoizedServices = useMemo(() => services, []);
+  const memoizedServices = services;
 
   const handleOpenModal = (service: {
     title: string;
@@ -123,6 +123,7 @@ const Service = () => {
                     src={service.img}
                     alt={service.title}
                     style={{ width: '100%', borderRadius: 5, height: '180px', objectFit: 'cover' }}
+                    loading="lazy"
                   />
                   <Typography
                     variant="h5"
@@ -180,7 +181,7 @@ const Service = () => {
               (item) =>
                 `${item.category == '' ? '' : `${item.category}\n`}
                 ${item.service.map((svc) => `${svc.text} - R$ ${svc.price}`).join('\n')}`
-              ).join('\n\n')}
+            ).join('\n\n')}
         />
       )}
     </StyledServices>

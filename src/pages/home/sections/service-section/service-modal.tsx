@@ -9,7 +9,7 @@ interface Props {
   keepMounted?: boolean;
 }
 
-const ServiceModal: React.FC<Props> = ({ open, handleClose, title, item, keepMounted }) => {
+const ServiceModal: React.FC<Props> = React.memo(({ open, handleClose, title, item, keepMounted }) => {
   return (
     <Modal
       open={open}
@@ -56,6 +56,6 @@ const ServiceModal: React.FC<Props> = ({ open, handleClose, title, item, keepMou
       </Box>
     </Modal>
   );
-};
+});
 
 export default ServiceModal;
