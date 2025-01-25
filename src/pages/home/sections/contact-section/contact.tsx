@@ -8,6 +8,9 @@ import ContactButton from '../../../../components/styled-button/contact-button';
 // import { ListItemText } from '@mui/material';
 
 const Contact = () => {
+    console.log('VITE_API_KEY', import.meta.env.VITE_API_KEY);
+    console.log('VITE_API_FORM', import.meta.env.VITE_API_FORM);
+   
     const StyledContact = styled('div')(({ theme }) => ({
         padding: '40px 0px',
         background: `linear-gradient(to bottom, ${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 50%, ${theme.palette.background.paper} 50%, ${theme.palette.background.paper} 100%)`,
